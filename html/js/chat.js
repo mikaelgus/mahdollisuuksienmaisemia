@@ -7,6 +7,7 @@ const form = document.getElementById("form");
 const input = document.getElementById("input");
 const username = document.getElementById("username");
 const join = document.getElementById("join");
+document.getElementById("chatBtn").disabled = true;
 
 let user;
 
@@ -15,6 +16,8 @@ join.addEventListener("submit", (e) => {
   if (username.value) {
     user = username.value;
     socket.emit("join", user);
+    document.getElementById("joinBtn").disabled = true;
+    document.getElementById("chatBtn").disabled = false;
   }
 });
 
