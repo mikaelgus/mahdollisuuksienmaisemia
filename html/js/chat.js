@@ -13,19 +13,16 @@ let user;
 join.addEventListener("submit", (e) => {
   e.preventDefault();
   if (username.value) {
-    socket.emit("join", username.value);
     user = username.value;
+    socket.emit("join", user);
   }
 });
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   if (input.value) {
-    //  const package = {room: room, message: user + ": " + input.value};
     const pack = { message: user + ": " + input.value };
     socket.emit("message", pack);
-    console.log("message", user + ": " + input.value);
-    console.log("package: ", pack);
     input.value = "";
   }
 });

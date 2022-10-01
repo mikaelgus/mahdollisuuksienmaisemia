@@ -7,25 +7,29 @@ const io = require("socket.io")(http);
 
 app.use(express.static("../html"));
 
-const users = [];
+let users = [];
 
 io.on("connection", (socket) => {
   console.log("a user connected", socket.id);
 
   socket.on("join", (username) => {
     users.push({ username: username, id: socket.id });
-    console.log("users connected: ", users);
+    console.log("new users connected: ", users);
     io.emit("message", username + " liittyi chattiin");
   });
 
   socket.on("disconnect", () => {
     console.log("a user disconnected", socket.id);
-    // TODO: remove user with socket.id form users array
+    const disconnectedData = users.find((item) => item.id === `${socket.id}`);
+    const disconnectedName = disconnectedData.username;
+    console.log("leaving user: ", disconnectedName);
+    io.emit("message", disconnectedName + " poistui chatistä");
+    users = users.filter((item) => item.id !== `${socket.id}`);
+    console.log("updated users connected: ", users);
   });
 
   socket.on("message", ({ message }) => {
     console.log({ message });
-    //socket.emit("message", message);
     io.emit("message", message);
   });
 });
