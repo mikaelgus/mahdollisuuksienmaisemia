@@ -8,16 +8,17 @@ const input = document.getElementById("input");
 const username = document.getElementById("username");
 const join = document.getElementById("join");
 document.getElementById("chatBtn").disabled = true;
+document.getElementById("joinBtn").disabled = false;
 
 let user;
+let userNames = [];
 
 join.addEventListener("submit", (e) => {
   e.preventDefault();
   if (username.value) {
     user = username.value;
     socket.emit("join", user);
-    document.getElementById("joinBtn").disabled = true;
-    document.getElementById("chatBtn").disabled = false;
+    chatTrue();
   }
 });
 
@@ -37,3 +38,25 @@ socket.on("message", (msg) => {
   messages.appendChild(item);
   window.scrollTo(0, document.body.scrollHeight);
 });
+
+socket.on("new chat user", (msg) => {
+  console.log(msg, " added to user list");
+  userNames.push(msg);
+  console.log("user list: ", userNames);
+});
+
+socket.on("name taken", (msg) => {
+  console.log(msg, " name already taken");
+  chatFalse();
+});
+
+function chatTrue() {
+  document.getElementById("joinBtn").disabled = true;
+  document.getElementById("chatBtn").disabled = false;
+  document.getElementById("nameError").innerText = "";
+}
+function chatFalse() {
+  document.getElementById("joinBtn").disabled = false;
+  document.getElementById("chatBtn").disabled = true;
+  document.getElementById("nameError").innerText = "Chattinimi on jo käytössä";
+}

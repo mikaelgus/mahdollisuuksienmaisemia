@@ -13,9 +13,16 @@ io.on("connection", (socket) => {
   console.log("a user connected", socket.id);
 
   socket.on("join", (username) => {
-    users.push({ username: username, id: socket.id });
-    console.log("new users connected: ", users);
-    io.emit("message", username + " liittyi chattiin");
+    if (users.some((item) => item.username === `${username}`)) {
+      console.log(username, "name found from users");
+      io.emit("name taken", username);
+    } else {
+      console.log(username, "not found from users");
+      users.push({ username: username, id: socket.id });
+      console.log("new users connected: ", users);
+      io.emit("message", username + " liittyi chattiin");
+      io.emit("new chat user", username);
+    }
   });
 
   socket.on("disconnect", () => {
