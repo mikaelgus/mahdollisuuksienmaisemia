@@ -31,6 +31,7 @@ io.on("connection", (socket) => {
     const disconnectedName = disconnectedData.username;
     console.log("leaving user: ", disconnectedName);
     io.emit("message", disconnectedName + " poistui chatistä");
+    io.emit("remove from usernames", disconnectedName);
     users = users.filter((item) => item.id !== `${socket.id}`);
     console.log("updated users connected: ", users);
   });
