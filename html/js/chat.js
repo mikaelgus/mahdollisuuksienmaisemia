@@ -11,7 +11,6 @@ document.getElementById("chatBtn").disabled = true;
 document.getElementById("joinBtn").disabled = false;
 
 let user;
-let userNames = [];
 
 join.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -39,20 +38,13 @@ socket.on("message", (msg) => {
   window.scrollTo(0, document.body.scrollHeight);
 });
 
-socket.on("new chat user", (msg) => {
-  console.log(msg, " added to user list");
-  userNames.push(msg);
-  console.log("user list: ", userNames);
+socket.on("userlist", (msg) => {
+  console.log("user list from server", msg);
 });
 
 socket.on("name taken", (msg) => {
   console.log(msg, " name already taken");
   chatFalse();
-});
-
-socket.on("remove from usernames", (name) => {
-  userNames = userNames.filter((item) => item !== `${name}`);
-  console.log("user list: ", userNames);
 });
 
 function chatTrue() {

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/emojionearea.min.css" />
     <script src="/socket.io/socket.io.js"></script>
     <script defer src="js/chat.js"></script>
     <title>Mahdollisuuksien maailma</title>
@@ -35,16 +36,21 @@
       </form>
       <form id="form">
         <h3>Kirjoita viesti:</h3>
-        <input
-          type="text"
-          id="input"
-          placeholder="Kirjoita viesti"
-          autocomplete="off"
-        />
+        <div style="width: 300px;"> <input
+            type="text"
+            id="input"
+            placeholder="Kirjoita viesti"
+            autocomplete="off"
+            style="display: none"
+          /></div>
+       
         <button id="chatBtn" type="submit">Tumppaa viesti</button>
       </form>
       <ul id="messages" style="list-style-type: none"></ul>
     </main>
     <footer></footer>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="js/emojionearea.min.js"></script>
+    <script src="js/emoji.js" type="text/javascript"></script>
   </body>
 </html>
