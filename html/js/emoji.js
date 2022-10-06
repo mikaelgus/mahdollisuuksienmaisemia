@@ -2,7 +2,7 @@ $(document).ready(function () {
   $("#input").emojioneArea({
     pickerPosition: "bottom",
   });
-  $("#chatBtn").click(() => {
+  $("#chatBtn").click(function () {
     $(".emojionearea-editor").html("");
   });
 });
