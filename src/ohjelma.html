@@ -10,17 +10,26 @@
       href="https://fonts.googleapis.com/css2?family=Cantarell&display=swap"
       rel="stylesheet"
     />
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+    <link href="https://unpkg.com/video.js@7/dist/video-js.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css" rel="stylesheet">
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"
       integrity="sha512-zInFF17qBFVvvvFpIfeBzo7Tj7+rQxLeTJDmbxjBz5/zIr89YVbTNelNhdTT+/DCrxoVzBeUPVFJsczKbB7sew=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script defer src="../html/js/chat.js"></script>
   </head>
+  <style>
+    
+  </style>
+  
   <body class="bg-black m-20">
     <header class="">
       <div class="flex justify-center">
-        <p class="text-whiteGrey">Mahdollisuuksien maisema</p>
+        <p class="text-whiteGrey font-main tracking-widest	">Mahdollisuuksien maisema</p>
       </div>
 
       <div class="flex justify-center">
@@ -39,18 +48,74 @@
         >
           Purple to blue
         </button>
+      </div>
+
+      <div class="flex justify-end">
+        <audio
+        class="w-1/4"
+        controls
+        src="media/hamahakkimies.mp3"
+        type="audio/mp3"
+
+      >
+      Your browser does not support the
+        <code>audio</code> element.
       </div>
     </header>
 
     <section class="grid grid-cols-3 gap-4 mt-10">
-      <div class="border-box col-span-2 h-60 rounded border-2 border-whiteGrey">
-        <p class="text-whiteGrey">Video</p>
+      <div class="border-box col-span-2 h-auto rounded border-2 border-whiteGrey">
+        <video
+        id="my-player"
+        class="video-js vjs-theme-forest"
+        controls
+        preload="auto"
+        width="640"
+        height="264"
+        poster=""
+        data-setup="{}"
+        style="max-width: 100%;"
+      >
+        <source src="../html/media/sea_animation.mp4" type="video/mp4" />
+        <source src="MY_VIDEO.webm" type="video/webm" />
+        <p class="vjs-no-js">
+          To view this video please enable JavaScript, and consider upgrading to a
+          web browser that
+          <a href="https://videojs.com/html5-video-support/" target="_blank"
+            >supports HTML5 video</a
+          >
+        </p>
+      </video>
       </div>
 
-      <div>
-        <p class="text-whiteGrey h-60 rounded border-2 border-whiteGrey">
-          Chat
-        </p>
+      <div class="h-auto rounded border-2 border-whiteGrey">
+        <form id="join">
+          <h3><p class="text-whiteGrey">ensin käyttäjänimi:</p></h3>
+          <p class="text-whiteGrey">Käytä vain kirjaimia ja numeroita (min. 3 merkkiä)</p>
+          <input
+            type="text"
+            id="username"
+            placeholder="Chattinimi"
+            pattern="[A-Öa-ö0-9].{3,}"
+            autocomplete="off"
+          />
+          <button class="rounded border-2 border-whiteGrey" id="joinBtn" type="submit">
+            <p class="text-whiteGrey">Aseta nimmari</p></button>
+          <p id="nameError"></p>
+        </form>
+        <form id="form">
+          <!-- <h3><p class="text-whiteGrey">Kirjota viesti</p></h3> -->
+          <div style="width: 300px;"> <input
+              type="text"
+              id="input"
+              placeholder="Kirjoita viesti"
+              autocomplete="off"
+            /></div>
+         
+          <button class="rounded border-2 border-whiteGrey" id="chatBtn" type="submit">
+            <p class="text-whiteGrey">Tumppaa viesti</p></button>
+        </form>
+        <ul class="rounded border-2 border-whiteGrey" id="messages" style="list-style-type: none"></ul>
       </div>
 
       <div class="col-span-3 h-40 rounded border-2 border-whiteGrey">
@@ -100,11 +165,11 @@
     <script>
       let buttons = document.querySelectorAll("button");
       const colorScale = chroma.scale([
-        "#00F0FF",
         "#FF00F5",
+        "#00F0FF",
         "#00FF19",
         "#FAFF00",
-      ]);
+      ]).domain([0,0.7,0.6,0.9]);
 
       const bodyHeight = window.innerHeight;
       const bodyWidth = document
@@ -114,16 +179,17 @@
       function colorButtons() {
         buttons.forEach((button) => {
           button.onmouseover =
-            function () {
-                console.log('hovering over button')
+            function (event) {
               let height = button.getBoundingClientRect().y;
               let width = button.getBoundingClientRect().x;
-              let percentage = (height / bodyHeight + width / bodyWidth) / 2;
-
-              button.style = `border: 2px solid ${colorScale(percentage)} !important`;
+              let percentageLeftCorner = (height / bodyHeight + width / bodyWidth) / 2;
+              let percentageRightCorner = ((height + button.offsetHeight) / bodyHeight + (button.offsetWidth+ width) / bodyWidth) / 2;
+              
+              button.style.borderStyle = `solid`;
+              button.style.borderImage = `linear-gradient(120deg,${colorScale(percentageLeftCorner)},${colorScale(percentageRightCorner)}) 10`;
             };
             button.onmouseleave= function(){
-              button.style = ``;
+             button.style = ``;
 
             }
         });
@@ -133,5 +199,6 @@
       //    colorButtons()
       //})
     </script>
+    <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
   </body>
 </html>
