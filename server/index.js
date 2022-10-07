@@ -16,7 +16,7 @@ io.on("connection", (socket) => {
   socket.on("join", (username) => {
     if (users.some((item) => item.username === `${username}`)) {
       console.log(username, "name found from users");
-      io.emit("name taken", username);
+      socket.emit("name taken", username);
     } else {
       console.log(username, "not found from users");
       users.push({ username: username, id: socket.id });
