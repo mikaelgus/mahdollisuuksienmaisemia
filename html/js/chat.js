@@ -3,6 +3,8 @@
 const socket = io("http://localhost:3000");
 //const socket = io("https://media-cloud.francecentral.cloudapp.azure.com/");
 
+const toggleBtn = document.getElementById("toggle-chat");
+const chatSection = document.getElementById("chat-section");
 const messages = document.getElementById("messages");
 const form = document.getElementById("form");
 const input = document.getElementById("input");
@@ -47,6 +49,18 @@ socket.on("name taken", (msg) => {
   console.log(msg, " name already taken");
   chatFalse();
 });
+
+function toggleChat() {
+  if (chatSection.style.display === "none") {
+    chatSection.style.display = "block";
+    toggleBtn.innerText = "piilota chatti";
+  } else {
+    chatSection.style.display = "none";
+    toggleBtn.innerText = "näytä chatti";
+  }
+}
+
+toggleBtn.addEventListener("click", toggleChat);
 
 function chatTrue() {
   document.getElementById("joinBtn").disabled = true;

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="output.css" rel="stylesheet" />
+    <link href="css/output.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -12,7 +12,9 @@
     />
     <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
     <link href="https://unpkg.com/video.js@7/dist/video-js.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css" rel="stylesheet">
+   <!--  <link href="https://unpkg.com/@videojs/themes@1/dist/fantasy/index.css" rel="stylesheet"> -->
+    <link href="css/fantasy.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/emojionearea.min.css" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"
       integrity="sha512-zInFF17qBFVvvvFpIfeBzo7Tj7+rQxLeTJDmbxjBz5/zIr89YVbTNelNhdTT+/DCrxoVzBeUPVFJsczKbB7sew=="
@@ -21,6 +23,9 @@
     ></script>
     <script src="/socket.io/socket.io.js"></script>
     <script defer src="js/chat.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script type="text/javascript"src="js/emojionearea.min.js"></script>
+    <script type="text/javascript" src="js/emoji.js"></script>
   </head>
   <style>
     
@@ -61,13 +66,21 @@
       Your browser does not support the
         <code>audio</code> element.
       </div>
+     
     </header>
-
+    <div class="flex justify-end">
+      <button id="toggle-chat"
+        class="bg-black rounded border-2 border-whiteGrey relative text-xs text-whiteGrey p-1 m-1"
+      >
+        piilota chatti
+      </button>
+    </div>
     <section class="grid grid-cols-3 gap-4 mt-10">
+      
       <div class="border-box col-span-2 h-auto rounded border-2 border-whiteGrey">
         <video
         id="my-player"
-        class="video-js vjs-theme-forest"
+        class="video-js vjs-theme-fantasy"
         controls
         preload="auto"
         width="640"
@@ -88,39 +101,43 @@
       </video>
       </div>
 
-      <div class="h-auto rounded border-2 border-whiteGrey">
-        <form id="join">
-          <h3><p class="text-whiteGrey">ensin käyttäjänimi:</p></h3>
-          <p class="text-whiteGrey">Käytä vain kirjaimia ja numeroita (min. 3 merkkiä)</p>
+      <div id="chat-section" class="h-auto rounded border-2 border-whiteGrey">
+        <form id="join" class="min-w-300px w-auto">
+      <!--<h3><p class="text-whiteGrey">Syötä ensin käyttäjänimi:</p></h3>
+          <p class="text-whiteGrey">Käytä vain kirjaimia ja numeroita (min. 3 merkkiä)</p> -->
           <input
             type="text"
             id="username"
             placeholder="Chattinimi"
             pattern="[A-Öa-ö0-9].{3,}"
             autocomplete="off"
+            class="bg-white rounded border-2 border-whiteGrey m-2 p-1"
           />
-          <button class="rounded border-2 border-whiteGrey" id="joinBtn" type="submit">
-            <p class="text-whiteGrey">Aseta nimmari</p></button>
+          <button class="rounded border-2 border-whiteGrey px-2 py-1 text-xs" id="joinBtn" type="submit">
+            <p class="text-whiteGrey">Aseta</p></button>
           <p id="nameError"></p>
         </form>
-        <form id="form">
+        <ul class="rounded border-2 h-1/2 bg-white border-whiteGrey" id="messages" style="list-style-type: none"></ul>
+        <form id="form" class="min-w-300px">
           <!-- <h3><p class="text-whiteGrey">Kirjota viesti</p></h3> -->
-          <div style="width: 300px;"> <input
+          <div> <input
               type="text"
               id="input"
               placeholder="Kirjoita viesti"
               autocomplete="off"
+              style="display: none"
+              class="bg-white m-2"
             /></div>
          
-          <button class="rounded border-2 border-whiteGrey" id="chatBtn" type="submit">
-            <p class="text-whiteGrey">Tumppaa viesti</p></button>
+          <button class="rounded border-2 border-whiteGrey px-2 py-1 text-xs" id="chatBtn" type="submit">
+            <p class="text-whiteGrey">Lähetä</p></button>
         </form>
-        <ul class="rounded border-2 border-whiteGrey" id="messages" style="list-style-type: none"></ul>
+        
       </div>
 
       <div class="col-span-3 h-40 rounded border-2 border-whiteGrey">
         <p class="text-whiteGrey">Informaatio</p>
-        >
+        
       </div>
     </section>
 
