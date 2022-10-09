@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="/dist/output.css" rel="stylesheet" />
+    <link href="/html/css/output.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -11,8 +11,14 @@
       rel="stylesheet"
     />
     <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
-    <link href="https://unpkg.com/video.js@7/dist/video-js.min.css" rel="stylesheet">
-    <link href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css" rel="stylesheet">
+    <link
+      href="https://unpkg.com/video.js@7/dist/video-js.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://unpkg.com/@videojs/themes@1/dist/forest/index.css"
+      rel="stylesheet"
+    />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"
       integrity="sha512-zInFF17qBFVvvvFpIfeBzo7Tj7+rQxLeTJDmbxjBz5/zIr89YVbTNelNhdTT+/DCrxoVzBeUPVFJsczKbB7sew=="
@@ -23,34 +29,100 @@
     <script defer src="../html/js/chat.js"></script>
   </head>
   <style>
-    
+    /* audio::-webkit-media-controls-timeline,
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-time-remaining-display{
+  display: none;
+}
+audio::-webkit-media-controls-panel{
+  background-color: transparent;
+}
+audio::-webkit-media-controls-play-button{
+  color: azure !important;
+  background-color: blueviolet;
+}
+audio::-webkit-media-controls-volume-slider-container,
+audio::-webkit-media-controls-volume-slider{
+  color: blue;
+} */
+    /* .audioButton.play{
+  border-style: solid;
+  box-sizing: border-box;
+  width: 74px;
+  height: 74px;
+  border-width: 37px 0px 37px 74px;
+  border-color: transparent transparent transparent #202020;
+}
+.audioButton.pause{
+  width: 74px;
+  height: 74px;
+  border-style: double;
+  border-width: 0px 0px 0px 37px;
+  border-color: #202020;
+} */
+    .audioButton {
+      border: 0;
+      background: transparent;
+      box-sizing: border-box;
+      width: 0;
+      height: 74px;
+      border-color: transparent transparent transparent #202020;
+      transition: 100ms all ease;
+      cursor: pointer;
+      border-style: solid;
+      border-width: 37px 0 37px 60px;
+    }
+    .audioButton.paused {
+      border-style: double;
+      border-width: 0px 0 0px 60px;
+    }
+    .audioButton:hover {
+      border-color: black black black #404040;
+    }
+
   </style>
-  
+
   <body class="bg-black m-20">
     <header class="">
-      <div class="flex justify-center">
-        <p class="text-whiteGrey font-main tracking-widest	">Mahdollisuuksien maisema</p>
+      <div class="flex justify-center mb-2">
+        <p class="text-whiteGrey font-main tracking-widest text-2xl">
+          Mahdollisuuksien maisema
+        </p>
       </div>
 
       <div class="flex justify-center">
-        <button
-          class="bg-black rounded border-2 border-whiteGrey relative text-sm font-medium text-whiteGrey"
-        >
-          Purple to blue
-        </button>
-        <button
-          class="bg-black rounded border-2 border-whiteGrey relative text-sm font-medium text-whiteGrey"
-        >
-          Purple to blue
-        </button>
-        <button
-          class="bg-black rounded border-2 border-whiteGrey relative text-sm font-medium text-whiteGrey"
-        >
-          Purple to blue
-        </button>
+        <a class="mx-1" href="index.html">
+          <button
+            class="bg-black rounded border-2 border-transparent relative text-sm p-1">
+            <p class="text-whiteGrey font-main tracking-widest">Koti</p>
+          </button>
+        </a>
+        <a class="mx-1" href="ohjelma.html">
+          <button
+            class="bg-black rounded border-2 border-transparent relative text-sm p-1">
+            <p class="text-whiteGrey font-main tracking-widest">Ohjelma</p>
+          </button>
+        </a>
+        <a class="mx-1" href="yhteystiedot.html">
+          <button
+            class="bg-black rounded border-2 border-transparent relative text-sm p-1">
+            <p class="text-whiteGrey font-main tracking-widest">Yhteystiedot</p>
+          </button>
+        </a>
       </div>
 
-      <div class="flex justify-end">
+      <div>
+        <audio id="player" src="media/hamahakkimies.mp3"></audio>
+        <div>
+          <button
+            onclick="document.getElementById('player').play().pause()"
+            class="audioButton"
+          ></button>
+          <!-- <button onclick="document.getElementById('player').pause()" class="audioButton">Pause</button>  -->
+          <!-- <button onclick="document.getElementById('player').volume += 0.1" class="audioButton">Vol +</button> 
+          <button onclick="document.getElementById('player').volume -= 0.1" class="audioButton">Vol -</button>  -->
+        </div>
+        <!-- <div class="flex justify-end">
         <audio
         class="w-1/4"
         controls
@@ -60,38 +132,43 @@
       >
       Your browser does not support the
         <code>audio</code> element.
+      </div> -->
       </div>
     </header>
 
     <section class="grid grid-cols-3 gap-4 mt-10">
-      <div class="border-box col-span-2 h-auto rounded border-2 border-whiteGrey">
-        <video
-        id="my-player"
-        class="video-js vjs-theme-forest"
-        controls
-        preload="auto"
-        width="640"
-        height="264"
-        poster=""
-        data-setup="{}"
-        style="max-width: 100%;"
+      <div
+        class="border-box col-span-2 h-auto rounded border-2 border-whiteGrey"
       >
-        <source src="../html/media/sea_animation.mp4" type="video/mp4" />
-        <source src="MY_VIDEO.webm" type="video/webm" />
-        <p class="vjs-no-js">
-          To view this video please enable JavaScript, and consider upgrading to a
-          web browser that
-          <a href="https://videojs.com/html5-video-support/" target="_blank"
-            >supports HTML5 video</a
-          >
-        </p>
-      </video>
+        <video
+          id="my-player"
+          class="video-js vjs-theme-forest"
+          controls
+          preload="auto"
+          width="640"
+          height="264"
+          poster=""
+          data-setup="{}"
+          style="max-width: 100%"
+        >
+          <source src="../html/media/sea_animation.mp4" type="video/mp4" />
+          <source src="MY_VIDEO.webm" type="video/webm" />
+          <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading
+            to a web browser that
+            <a href="https://videojs.com/html5-video-support/" target="_blank"
+              >supports HTML5 video</a
+            >
+          </p>
+        </video>
       </div>
 
       <div class="h-auto rounded border-2 border-whiteGrey">
         <form id="join">
           <h3><p class="text-whiteGrey">ensin käyttäjänimi:</p></h3>
-          <p class="text-whiteGrey">Käytä vain kirjaimia ja numeroita (min. 3 merkkiä)</p>
+          <p class="text-whiteGrey">
+            Käytä vain kirjaimia ja numeroita (min. 3 merkkiä)
+          </p>
           <input
             type="text"
             id="username"
@@ -99,23 +176,39 @@
             pattern="[A-Öa-ö0-9].{3,}"
             autocomplete="off"
           />
-          <button class="rounded border-2 border-whiteGrey" id="joinBtn" type="submit">
-            <p class="text-whiteGrey">Aseta nimmari</p></button>
+          <button
+            class="rounded border-2 border-whiteGrey"
+            id="joinBtn"
+            type="submit"
+          >
+            <p class="text-whiteGrey">Aseta nimmari</p>
+          </button>
           <p id="nameError"></p>
         </form>
         <form id="form">
           <!-- <h3><p class="text-whiteGrey">Kirjota viesti</p></h3> -->
-          <div style="width: 300px;"> <input
+          <div style="width: 300px">
+            <input
               type="text"
               id="input"
               placeholder="Kirjoita viesti"
               autocomplete="off"
-            /></div>
-         
-          <button class="rounded border-2 border-whiteGrey" id="chatBtn" type="submit">
-            <p class="text-whiteGrey">Tumppaa viesti</p></button>
+            />
+          </div>
+
+          <button
+            class="rounded border-2 border-whiteGrey"
+            id="chatBtn"
+            type="submit"
+          >
+            <p class="text-whiteGrey">Tumppaa viesti</p>
+          </button>
         </form>
-        <ul class="rounded border-2 border-whiteGrey" id="messages" style="list-style-type: none"></ul>
+        <ul
+          class="rounded border-2 border-whiteGrey"
+          id="messages"
+          style="list-style-type: none"
+        ></ul>
       </div>
 
       <div class="col-span-3 h-40 rounded border-2 border-whiteGrey">
@@ -164,12 +257,9 @@
 
     <script>
       let buttons = document.querySelectorAll("button");
-      const colorScale = chroma.scale([
-        "#FF00F5",
-        "#00F0FF",
-        "#00FF19",
-        "#FAFF00",
-      ]).domain([0,0.7,0.6,0.9]);
+      const colorScale = chroma
+        .scale(["#FF00F5", "#00F0FF", "#00FF19", "#FAFF00"])
+        .domain([0, 0.7, 0.6, 0.9]);
 
       const bodyHeight = window.innerHeight;
       const bodyWidth = document
@@ -178,27 +268,40 @@
 
       function colorButtons() {
         buttons.forEach((button) => {
-          button.onmouseover =
-            function (event) {
-              let height = button.getBoundingClientRect().y;
-              let width = button.getBoundingClientRect().x;
-              let percentageLeftCorner = (height / bodyHeight + width / bodyWidth) / 2;
-              let percentageRightCorner = ((height + button.offsetHeight) / bodyHeight + (button.offsetWidth+ width) / bodyWidth) / 2;
-              
-              button.style.borderStyle = `solid`;
-              button.style.borderImage = `linear-gradient(120deg,${colorScale(percentageLeftCorner)},${colorScale(percentageRightCorner)}) 10`;
-            };
-            button.onmouseleave= function(){
-             button.style = ``;
+          button.onmouseover = function (event) {
+            let height = button.getBoundingClientRect().y;
+            let width = button.getBoundingClientRect().x;
+            let percentageLeftCorner =
+              (height / bodyHeight + width / bodyWidth) / 2;
+            let percentageRightCorner =
+              ((height + button.offsetHeight) / bodyHeight +
+                (button.offsetWidth + width) / bodyWidth) /
+              2;
 
-            }
+            button.style.borderStyle = `solid`;
+            button.style.borderImage = `linear-gradient(120deg,${colorScale(
+              percentageLeftCorner
+            )},${colorScale(percentageRightCorner)}) 10`;
+          };
+          button.onmouseleave = function () {
+            button.style = ``;
+          };
         });
       }
-      colorButtons()
+      colorButtons();
       //window.addEventListener('scroll', function(){
       //    colorButtons()
       //})
+
+      $(document).ready(function () {
+        var audioBtn = $(".audioButton");
+        audioBtn.click(function () {
+          audioBtn.toggleClass("paused");
+          return false;
+        });
+      });
     </script>
+
     <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
   </body>
 </html>
