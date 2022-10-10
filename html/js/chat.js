@@ -10,6 +10,7 @@ const form = document.getElementById("form");
 const input = document.getElementById("input");
 const username = document.getElementById("username");
 const join = document.getElementById("join");
+join.style.display = "block";
 document.getElementById("chatBtn").disabled = true;
 document.getElementById("joinBtn").disabled = false;
 
@@ -21,6 +22,7 @@ join.addEventListener("submit", (e) => {
     user = username.value;
     socket.emit("join", user);
     chatTrue();
+    join.style.display = "none";
   }
 });
 
@@ -72,3 +74,5 @@ function chatFalse() {
   document.getElementById("chatBtn").disabled = true;
   document.getElementById("nameError").innerText = "Chattinimi on jo käytössä";
 }
+
+messages.scrollTop = messages.scrollHeight;
