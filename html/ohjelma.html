@@ -25,30 +25,8 @@
     ></script>
     <script defer src="../js/chat.js"></script>
   </head>
-  <style>
-    .audioButton {
-      border: 0;
-      background: transparent;
-      box-sizing: border-box;
-      width: 0;
-      height: 74px;
-      border-color: transparent transparent transparent #202020;
-      transition: 100ms all ease;
-      cursor: pointer;
-      border-style: solid;
-      border-width: 37px 0 37px 30px;
-      transform: scale(0.8,0.5);
-    }
-    .audioButton.paused {
-      border-style: double;
-      border-width: 0px 0 0px 40px;
-    }
-    .audioButton:hover {
-      border-color: black black black #404040;
-    }
-  </style>
 
-  <body class="bg-black m-20">
+  <body class="bg-black align-middle mt-20 m-auto max-w-screen-xl">
     <header class="">
       <div class="flex justify-center mb-2">
         <p class="text-whiteGrey font-main tracking-widest text-2xl">
@@ -82,15 +60,18 @@
 
       <div class="flex justify-end">
         <audio id="player" src="media/hamahakkimies.mp3"></audio>
+        <div class="flex items-center">
           <button
-            class="audioButton"
+            class="audioButton mr-2"
           ></button>
+          <p>Hissimusa Radio</p>
+        </div>
       </div>
     </header>
 
     <section class="grid grid-cols-3 gap-4 mt-10">
       <div
-        class="border-box col-span-2 h-auto rounded border-2 border-whiteGrey"
+        class="border-box col-span-2 h-auto rounded border-2 border-grey"
       >
         <video
           id="my-player"
@@ -115,12 +96,10 @@
         </video>
       </div>
 
-      <div class="h-auto rounded border-2 border-whiteGrey">
+      <div class="h-auto rounded border-2 border-grey">
         <form id="join">
-          <h3><p class="text-whiteGrey">ensin käyttäjänimi:</p></h3>
-          <p class="text-whiteGrey">
-            Käytä vain kirjaimia ja numeroita (min. 3 merkkiä)
-          </p>
+          <h3>Anna ensin käyttäjänimi:</h3>
+          <p>Käytä vain kirjaimia ja numeroita (min. 3 merkkiä)</p>
           <input
             type="text"
             id="username"
@@ -128,56 +107,56 @@
             pattern="[A-Öa-ö0-9].{3,}"
             autocomplete="off"
           />
-          <button
-            class="rounded border-2 border-whiteGrey"
-            id="joinBtn"
-            type="submit"
-          >
-            <p class="text-whiteGrey">Aseta nimmari</p>
-          </button>
+          <button id="joinBtn" type="submit">Aseta nimmari</button>
           <p id="nameError"></p>
         </form>
         <form id="form">
-          <!-- <h3><p class="text-whiteGrey">Kirjota viesti</p></h3> -->
-          <div style="width: 300px">
-            <input
+          <h3>Kirjoita viesti:</h3>
+          <div style="width: 300px;"> <input
               type="text"
               id="input"
               placeholder="Kirjoita viesti"
               autocomplete="off"
-            />
-          </div>
-
-          <button
-            class="rounded border-2 border-whiteGrey"
-            id="chatBtn"
-            type="submit"
-          >
-            <p class="text-whiteGrey">Tumppaa viesti</p>
-          </button>
+            /></div>
+         
+          <button id="chatBtn" type="submit">Tumppaa viesti</button>
         </form>
-        <ul
-          class="rounded border-2 border-whiteGrey"
-          id="messages"
-          style="list-style-type: none"
-        ></ul>
+        <ul id="messages" style="list-style-type: none"></ul>
       </div>
 
-      <div class="col-span-3 h-40 rounded border-2 border-whiteGrey">
-        <p class="text-whiteGrey">Informaatio</p>
-        >
+      <div class="col-span-3 h-auto rounded border-2 border-black">
+        <p>
+          Ohjelma: <br>
+          Tässä striimissä opiskelijat esittelevät omaa projektiaan monen tuskaisen viikon takaa.
+          Projektin teemana on ollut hioa mahdollisimman tyylikäs sivusto media lisukkeita käyttäen joita
+          ovat mm. Striimi ja radio.
+          <br><br>
+          Ohjelma sopii kaiken ikäisille muttei kaikista huono näköisimmille sekä migreenistä kärsiville.
+          <br><br>
+          Tervetuloa nauttimaan meidän kanssamme!
+        </p>
+        
       </div>
     </section>
+
+
+    <div class="mt-16 ">
+      <p class="text-xl alwaysOnGradiant border-b-2 border-whiteGrey ">
+        Tulossa seuraavaksi:
+      </p>
+    </div>
+
+<!-- Buttons -->
+
 
     <section class="grid grid-cols-2 gap-4 mt-10">
       
       <button
-        class="modal-open gradientBtn bg-black h-28 rounded border-2 border-black relative text-sm font-medium text-whiteGrey" 
-        >
+        class="modal-open gradientBtn bg-black h-28 rounded border-2 border-black relative text-sm font-medium text-whiteGrey" >
         <div class="grid grid-rows-3 grid-cols-7 gap-1 h-full">
           <div class="col-span-3 row-span-3 bg-contain" style="background-image: url(media/light5.jpeg);"></div> <!--<img  src="media/light5.jpeg" alt="jokuKuva">-->
-          <div class="col-span-3 col-end-8 text-left p-1">
-            <p class="items-center text-base">
+          <div class="col-span-4 text-left p-1">
+            <p class="items-center text-lg">
               Valojuhla
             </p></div>
           <div class="col-span-4 text-left p-1">
@@ -211,10 +190,10 @@
           </div>
     
           <!-- Add margin if you want to see some of the overlay behind the modal-->
-          <div class="modal-content py-4 text-left px-6">
+          <div class="modal-content py-4 text-left px-6 bg-black rounded">
             <!--Title-->
             <div class="flex justify-between items-center pb-3">
-              <p class="text-2xl font-bold">Simple Modal!</p>
+              <p class="text-2xl font-bold">Valojuhla</p>
               <div class="modal-close cursor-pointer z-50">
                 <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
                   <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
@@ -223,56 +202,434 @@
             </div>
     
             <!--Body-->
-            <p>Modal content can go here</p>
-            <p>...</p>
-            <p>...</p>
-            <p>...</p>
-            <p>...</p>
+            <img src="media/light5.jpeg" alt="ValojuhlaKuva">
+            <p class="m-2">
+              Ohjelma:<br>
+              Tässä hurmaavassa tapahtumassa keskitymme valoihin ja niiden ihmeellisiin tapoihin
+              hurmata katsojansa. Esityksessä nähdään opiskelijoiden omia käsityksiä tunteiden ja tapahtumien 
+              ilmaisua valojen kautta. 
+              <br><br>
+              Sopii kaiken ikäisille
+              <br><br>
+              Tervetuloa!
+              
+
+            </p>
     
             <!--Footer-->
             <div class="flex justify-end pt-2">
-              <button class="modal-close px-4 bg-indigo-500 p-3 rounded-lg text-white hover:bg-indigo-400">Close</button>
+              <button class="modal-close gradientBtn bg-black rounded border-2 border-transparent relative text-lg p-2">
+                <p>
+                  Sulje
+                </p></button>
             </div>
             
           </div>
         </div>
       </div>
 
-
-
-
       <button
-        class="bg-black h-28 rounded border-2 border-whiteGrey text-sm font-medium text-whiteGrey"
-      >
-      </button>
+      class="modal-open gradientBtn bg-black h-28 rounded border-2 border-black text-sm font-medium text-whiteGrey" >
+      <div class="grid grid-rows-3 grid-cols-7 gap-1 h-full">
+        <div class="col-span-3 row-span-3 bg-contain" style="background-image: url(media/light5.jpeg);"></div> <!--<img  src="media/light5.jpeg" alt="jokuKuva">-->
+        <div class="col-span-4 text-left p-1">
+          <p class="items-center text-lg">
+            Valojuhla
+          </p></div>
+        <div class="col-span-4 text-left p-1">
+          <p class="flex items-center text-base">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+            </svg>
+            &nbsp;&nbsp;17.10.2022
+        </p></div>
+        <div class="col-span-4 text-left p-1">
+          <p class="flex items-center text-base">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg> 
+            &nbsp;&nbsp;19:00
+          </p></div>
+      </div>
+    
+    </button>
 
-      <button
-        class="bg-black h-28 rounded border-2 border-whiteGrey text-sm font-medium text-whiteGrey"
-      >
-        Purple to blue
-      </button>
+    <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
+      <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+      
+      <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+        
+        <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
+          <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+            <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+          </svg>
 
-      <button
-        class="bg-black h-28 rounded border-2 border-whiteGrey text-sm font-medium text-whiteGrey"
-      >
-        Purple to blue
-      </button>
+        </div>
+  
+        <!-- Add margin if you want to see some of the overlay behind the modal-->
+        <div class="modal-content py-4 text-left px-6 bg-black rounded">
+          <!--Title-->
+          <div class="flex justify-between items-center pb-3">
+            <p class="text-2xl font-bold">Valojuhla</p>
+            <div class="modal-close cursor-pointer z-50">
+              <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+                <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+              </svg>
+            </div>
+          </div>
+  
+          <!--Body-->
+          <img src="media/light5.jpeg" alt="ValojuhlaKuva">
+          <p class="m-2">
+            Ohjelma:<br>
+            Tässä hurmaavassa tapahtumassa keskitymme valoihin ja niiden ihmeellisiin tapoihin
+            hurmata katsojansa. Esityksessä nähdään opiskelijoiden omia käsityksiä tunteiden ja tapahtumien 
+            ilmaisua valojen kautta. 
+            <br><br>
+            Sopii kaiken ikäisille
+            <br><br>
+            Tervetuloa!
+            
 
-      <button
-        class="bg-black h-28 rounded border-2 border-whiteGrey text-sm font-medium text-whiteGrey"
-      >
-        Purple to blue
-      </button>
+          </p>
+  
+          <!--Footer-->
+          <div class="flex justify-end pt-2">
+            <button class="modal-close gradientBtn bg-black rounded border-2 border-transparent relative text-lg p-2">
+              <p>
+                Sulje
+              </p></button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
 
-      <button
-        class="bg-black h-28 rounded border-2 border-whiteGrey hover:border-gradi text-sm font-medium text-whiteGrey"
-      >
-        Purple to blue
-      </button>
+
+    <button
+    class="modal-open gradientBtn bg-black h-28 rounded border-2 border-black text-sm font-medium text-whiteGrey" >
+    <div class="grid grid-rows-3 grid-cols-7 gap-1 h-full">
+      <div class="col-span-3 row-span-3 bg-contain" style="background-image: url(media/light5.jpeg);"></div> <!--<img  src="media/light5.jpeg" alt="jokuKuva">-->
+      <div class="col-span-4 text-left p-1">
+        <p class="items-center text-lg">
+          Valojuhla
+        </p></div>
+      <div class="col-span-4 text-left p-1">
+        <p class="flex items-center text-base">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+          </svg>
+          &nbsp;&nbsp;17.10.2022
+      </p></div>
+      <div class="col-span-4 text-left p-1">
+        <p class="flex items-center text-base">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg> 
+          &nbsp;&nbsp;19:00
+        </p></div>
+    </div>
+  
+  </button>
+
+  <div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
+    <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+    
+    <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+      
+      <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
+        <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+          <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+        </svg>
+
+      </div>
+
+      <!-- Add margin if you want to see some of the overlay behind the modal-->
+      <div class="modal-content py-4 text-left px-6 bg-black rounded">
+        <!--Title-->
+        <div class="flex justify-between items-center pb-3">
+          <p class="text-2xl font-bold">Valojuhla</p>
+          <div class="modal-close cursor-pointer z-50">
+            <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+              <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+            </svg>
+          </div>
+        </div>
+
+        <!--Body-->
+        <img src="media/light5.jpeg" alt="ValojuhlaKuva">
+        <p class="m-2">
+          Ohjelma:<br>
+          Tässä hurmaavassa tapahtumassa keskitymme valoihin ja niiden ihmeellisiin tapoihin
+          hurmata katsojansa. Esityksessä nähdään opiskelijoiden omia käsityksiä tunteiden ja tapahtumien 
+          ilmaisua valojen kautta. 
+          <br><br>
+          Sopii kaiken ikäisille
+          <br><br>
+          Tervetuloa!
+          
+
+        </p>
+
+        <!--Footer-->
+        <div class="flex justify-end pt-2">
+          <button class="modal-close gradientBtn bg-black rounded border-2 border-transparent relative text-lg p-2">
+            <p>
+              Sulje
+            </p></button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <button
+  class="modal-open gradientBtn bg-black h-28 rounded border-2 border-black text-sm font-medium text-whiteGrey" >
+  <div class="grid grid-rows-3 grid-cols-7 gap-1 h-full">
+    <div class="col-span-3 row-span-3 bg-contain" style="background-image: url(media/light5.jpeg);"></div> <!--<img  src="media/light5.jpeg" alt="jokuKuva">-->
+    <div class="col-span-4 text-left p-1">
+      <p class="items-center text-lg">
+        Valojuhla
+      </p></div>
+    <div class="col-span-4 text-left p-1">
+      <p class="flex items-center text-base">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+        </svg>
+        &nbsp;&nbsp;17.10.2022
+    </p></div>
+    <div class="col-span-4 text-left p-1">
+      <p class="flex items-center text-base">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg> 
+        &nbsp;&nbsp;19:00
+      </p></div>
+  </div>
+
+</button>
+
+<div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
+  <div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+  
+  <div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+    
+    <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
+      <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+        <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+      </svg>
+
+    </div>
+
+    <!-- Add margin if you want to see some of the overlay behind the modal-->
+    <div class="modal-content py-4 text-left px-6 bg-black rounded">
+      <!--Title-->
+      <div class="flex justify-between items-center pb-3">
+        <p class="text-2xl font-bold">Valojuhla</p>
+        <div class="modal-close cursor-pointer z-50">
+          <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+            <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+          </svg>
+        </div>
+      </div>
+
+      <!--Body-->
+      <img src="media/light5.jpeg" alt="ValojuhlaKuva">
+      <p class="m-2">
+        Ohjelma:<br>
+        Tässä hurmaavassa tapahtumassa keskitymme valoihin ja niiden ihmeellisiin tapoihin
+        hurmata katsojansa. Esityksessä nähdään opiskelijoiden omia käsityksiä tunteiden ja tapahtumien 
+        ilmaisua valojen kautta. 
+        <br><br>
+        Sopii kaiken ikäisille
+        <br><br>
+        Tervetuloa!
+        
+
+      </p>
+
+      <!--Footer-->
+      <div class="flex justify-end pt-2">
+        <button class="modal-close gradientBtn bg-black rounded border-2 border-transparent relative text-lg p-2">
+          <p>
+            Sulje
+          </p></button>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<button
+class="modal-open gradientBtn bg-black h-28 rounded border-2 border-black text-sm font-medium text-whiteGrey" >
+<div class="grid grid-rows-3 grid-cols-7 gap-1 h-full">
+  <div class="col-span-3 row-span-3 bg-contain" style="background-image: url(media/light5.jpeg);"></div> <!--<img  src="media/light5.jpeg" alt="jokuKuva">-->
+  <div class="col-span-4 text-left p-1">
+    <p class="items-center text-lg">
+      Valojuhla
+    </p></div>
+  <div class="col-span-4 text-left p-1">
+    <p class="flex items-center text-base">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+      </svg>
+      &nbsp;&nbsp;17.10.2022
+  </p></div>
+  <div class="col-span-4 text-left p-1">
+    <p class="flex items-center text-base">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg> 
+      &nbsp;&nbsp;19:00
+    </p></div>
+</div>
+
+</button>
+
+<div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
+<div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+
+<div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+  
+  <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
+    <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+      <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+    </svg>
+
+  </div>
+
+  <!-- Add margin if you want to see some of the overlay behind the modal-->
+  <div class="modal-content py-4 text-left px-6 bg-black rounded">
+    <!--Title-->
+    <div class="flex justify-between items-center pb-3">
+      <p class="text-2xl font-bold">Valojuhla</p>
+      <div class="modal-close cursor-pointer z-50">
+        <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+          <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+        </svg>
+      </div>
+    </div>
+
+    <!--Body-->
+    <img src="media/light5.jpeg" alt="ValojuhlaKuva">
+    <p class="m-2">
+      Ohjelma:<br>
+      Tässä hurmaavassa tapahtumassa keskitymme valoihin ja niiden ihmeellisiin tapoihin
+      hurmata katsojansa. Esityksessä nähdään opiskelijoiden omia käsityksiä tunteiden ja tapahtumien 
+      ilmaisua valojen kautta. 
+      <br><br>
+      Sopii kaiken ikäisille
+      <br><br>
+      Tervetuloa!
+      
+
+    </p>
+
+    <!--Footer-->
+    <div class="flex justify-end pt-2">
+      <button class="modal-close gradientBtn bg-black rounded border-2 border-transparent relative text-lg p-2">
+        <p>
+          Sulje
+        </p></button>
+    </div>
+    
+  </div>
+</div>
+</div>
+
+<button
+class="modal-open gradientBtn bg-black h-28 rounded border-2 border-black text-sm font-medium text-whiteGrey" >
+<div class="grid grid-rows-3 grid-cols-7 gap-1 h-full">
+  <div class="col-span-3 row-span-3 bg-contain" style="background-image: url(media/light5.jpeg);"></div> <!--<img  src="media/light5.jpeg" alt="jokuKuva">-->
+  <div class="col-span-4 text-left p-1">
+    <p class="items-center text-lg">
+      Valojuhla
+    </p></div>
+  <div class="col-span-4 text-left p-1">
+    <p class="flex items-center text-base">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+      </svg>
+      &nbsp;&nbsp;17.10.2022
+  </p></div>
+  <div class="col-span-4 text-left p-1">
+    <p class="flex items-center text-base">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg> 
+      &nbsp;&nbsp;19:00
+    </p></div>
+</div>
+
+</button>
+
+<div class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
+<div class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"></div>
+
+<div class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto">
+  
+  <div class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50">
+    <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+      <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+    </svg>
+
+  </div>
+
+  <!-- Add margin if you want to see some of the overlay behind the modal-->
+  <div class="modal-content py-4 text-left px-6 bg-black rounded">
+    <!--Title-->
+    <div class="flex justify-between items-center pb-3">
+      <p class="text-2xl font-bold">Valojuhla</p>
+      <div class="modal-close cursor-pointer z-50">
+        <svg class="fill-current text-black" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+          <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+        </svg>
+      </div>
+    </div>
+
+    <!--Body-->
+    <img src="media/light5.jpeg" alt="ValojuhlaKuva">
+    <p class="m-2">
+      Ohjelma:<br>
+      Tässä hurmaavassa tapahtumassa keskitymme valoihin ja niiden ihmeellisiin tapoihin
+      hurmata katsojansa. Esityksessä nähdään opiskelijoiden omia käsityksiä tunteiden ja tapahtumien 
+      ilmaisua valojen kautta. 
+      <br><br>
+      Sopii kaiken ikäisille
+      <br><br>
+      Tervetuloa!
+      
+
+    </p>
+
+    <!--Footer-->
+    <div class="flex justify-end pt-2">
+      <button class="modal-close gradientBtn bg-black rounded border-2 border-transparent relative text-lg p-2">
+        <p>
+          Sulje
+        </p></button>
+    </div>
+    
+  </div>
+</div>
+</div>
     </section>
+
+
+    <!-- Footer -->
+
+
+    <footer class="mt-20">
+      <div class="flex w-auto h-40 border-2 rounded border-black items-center justify-center">
+        <p>
+          Mikael Gustafsson, Heta Huostila, Satu Petäjäjärvi
+        </p>
+      </div>
+    </footer>
 
     <script>
       let buttons = document.querySelectorAll(".gradientBtn");
+      let alwaysOnButton = document.querySelectorAll(".alwaysOnGradiant");
       const colorScale = chroma
         .scale(["#FF00F5", "#00F0FF", "#00FF19", "#FAFF00"])
         .domain([0, 0.7, 0.6, 0.9]);
@@ -285,7 +642,23 @@
       function colorButtons() {
         buttons.forEach((button) => {
           button.onmouseover = function (event) {
-            let height = button.getBoundingClientRect().y;
+            addButtonColor(button)
+          };
+          button.onmouseleave = function () {
+            button.style = ``;
+            button.classList.remove("gradiantButton");
+          };
+        });
+      }
+
+      function changeAlwaysOnButtonColor(){
+        alwaysOnButton.forEach((button) => {
+          addButtonColor(button)
+        });
+      }
+
+      function addButtonColor(button){
+        let height = button.getBoundingClientRect().y;
             let width = button.getBoundingClientRect().x;
             let percentageLeftCorner =
               (height / bodyHeight + width / bodyWidth) / 2;
@@ -299,17 +672,13 @@
             button.style.borderImage = `linear-gradient(120deg,${colorScale(
               percentageLeftCorner
             )},${colorScale(percentageRightCorner)}) 10`;
-          };
-          button.onmouseleave = function () {
-            button.style = ``;
-            button.classList.remove("gradiantButton");
-          };
-        });
       }
       colorButtons();
-      //window.addEventListener('scroll', function(){
-      //    colorButtons()
-      //})
+      changeAlwaysOnButtonColor()
+
+      window.addEventListener('scroll', function(){
+        changeAlwaysOnButtonColor()
+      })
       let toggled = false;
       document
         .querySelector(".audioButton")
