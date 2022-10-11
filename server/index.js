@@ -12,6 +12,7 @@ let usernames = [];
 
 io.on("connection", (socket) => {
   console.log("a user connected", socket.id);
+  io.emit("userlist", usernames);
 
   socket.on("join", (username) => {
     if (users.some((item) => item.username === `${username}`)) {

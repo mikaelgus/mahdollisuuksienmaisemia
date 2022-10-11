@@ -601,10 +601,6 @@ video {
   position: relative;
 }
 
-.col-span-2 {
-  grid-column: span 2 / span 2;
-}
-
 .col-span-3 {
   grid-column: span 3 / span 3;
 }
@@ -661,8 +657,16 @@ video {
   height: 9rem;
 }
 
+.h-4 {
+  height: 1rem;
+}
+
 .h-28 {
   height: 7rem;
+}
+
+.h-10 {
+  height: 2.5rem;
 }
 
 .w-1\/4 {

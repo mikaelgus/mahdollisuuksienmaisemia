@@ -11,6 +11,7 @@ const input = document.getElementById("input");
 const username = document.getElementById("username");
 const join = document.getElementById("join");
 const videoBox = document.getElementById("video-box");
+const chatNames = document.getElementById("chat-names");
 join.style.display = "block";
 form.style.display = "none";
 document.getElementById("chatBtn").disabled = true;
@@ -47,6 +48,7 @@ socket.on("message", (msg) => {
 
 socket.on("userlist", (msg) => {
   console.log("user list from server", msg);
+  chatNames.innerHTML = "Chattaajat: " + msg;
 });
 
 socket.on("name taken", (msg) => {
