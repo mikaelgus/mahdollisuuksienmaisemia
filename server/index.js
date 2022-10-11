@@ -23,7 +23,7 @@ io.on("connection", (socket) => {
       usernames.push(username);
       console.log("new users connected: ", users);
       io.emit("message", username + " liittyi chattiin");
-      io.emit("new chat user", username);
+      socket.emit("new chat user", username);
       io.emit("userlist", usernames);
     }
   });

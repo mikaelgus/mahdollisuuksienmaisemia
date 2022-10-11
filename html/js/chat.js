@@ -22,7 +22,6 @@ join.addEventListener("submit", (e) => {
     user = username.value;
     socket.emit("join", user);
     chatTrue();
-    join.style.display = "none";
   }
 });
 
@@ -50,6 +49,11 @@ socket.on("userlist", (msg) => {
 socket.on("name taken", (msg) => {
   console.log(msg, " name already taken");
   chatFalse();
+});
+
+socket.on("new chat user", (msg) => {
+  console.log(msg, "join username disabled");
+  join.style.display = "none";
 });
 
 function toggleChat() {

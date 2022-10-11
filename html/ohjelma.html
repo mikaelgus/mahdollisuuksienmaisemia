@@ -102,7 +102,7 @@
       </div>
 
       <div id="chat-section" class="h-auto rounded border-2 border-whiteGrey">
-        <form id="join" class="min-w-300px w-auto">
+        <form id="join" class="">
       <!--<h3><p class="text-whiteGrey">Syötä ensin käyttäjänimi:</p></h3>
           <p class="text-whiteGrey">Käytä vain kirjaimia ja numeroita (min. 3 merkkiä)</p> -->
           <input
@@ -112,26 +112,28 @@
             pattern="[A-Öa-ö0-9].{3,}"
             autocomplete="off"
             class="bg-white rounded border-2 border-whiteGrey m-2 p-1"
+            style="width: 70%;"
           />
           <button class="rounded border-2 border-whiteGrey px-2 py-1 text-xs" id="joinBtn" type="submit">
             <p class="text-whiteGrey">Aseta</p></button>
-          <p id="nameError"></p>
+          <p class="text-whiteGrey" id="nameError"></p>
         </form>
         <div class="rounded border-2 bg-white border-whiteGrey p-2">
           <ul id="messages" style="list-style-type: none"></ul>
         </div>
-        <form id="form" class="min-w-300px">
+        <form id="form" class="w-11/12 ">
           <!-- <h3><p class="text-whiteGrey">Kirjota viesti</p></h3> -->
-          <div> <input
+      
+            <input
               type="text"
               id="input"
               placeholder="Kirjoita viesti"
               autocomplete="off"
-              style="display: none"
+              
               class="bg-white m-2"
-            /></div>
+            />
          
-          <button class="rounded border-2 border-whiteGrey px-2 py-1 text-xs" id="chatBtn" type="submit">
+          <button class="float-right rounded border-2 border-whiteGrey px-2 py-1 text-xs" id="chatBtn" type="submit">
             <p class="text-whiteGrey">Lähetä</p></button>
         </form>
         
