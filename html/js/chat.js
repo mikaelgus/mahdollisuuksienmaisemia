@@ -10,6 +10,7 @@ const form = document.getElementById("form");
 const input = document.getElementById("input");
 const username = document.getElementById("username");
 const join = document.getElementById("join");
+const videoBox = document.getElementById("video-box");
 join.style.display = "block";
 form.style.display = "none";
 document.getElementById("chatBtn").disabled = true;
@@ -63,9 +64,11 @@ function toggleChat() {
   if (chatSection.style.display === "none") {
     chatSection.style.display = "block";
     toggleBtn.innerText = "piilota chatti";
+    videoBox.style = "grid-column: span 2;";
   } else {
     chatSection.style.display = "none";
     toggleBtn.innerText = "näytä chatti";
+    videoBox.style = "grid-column: span 3;";
   }
 }
 
