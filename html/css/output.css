@@ -653,6 +653,10 @@ video {
   height: auto;
 }
 
+.h-20 {
+  height: 5rem;
+}
+
 .h-40 {
   height: 10rem;
 }
@@ -661,24 +665,16 @@ video {
   height: 7rem;
 }
 
+.h-32 {
+  height: 8rem;
+}
+
+.h-36 {
+  height: 9rem;
+}
+
 .w-1\/4 {
   width: 25%;
-}
-
-.w-auto {
-  width: auto;
-}
-
-.w-3\/4 {
-  width: 75%;
-}
-
-.w-2\/3 {
-  width: 66.666667%;
-}
-
-.w-4\/5 {
-  width: 80%;
 }
 
 .w-11\/12 {
@@ -711,6 +707,18 @@ video {
 
 .gap-4 {
   gap: 1rem;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.overflow-scroll {
+  overflow: scroll;
+}
+
+.overflow-y-scroll {
+  overflow-y: scroll;
 }
 
 .rounded {

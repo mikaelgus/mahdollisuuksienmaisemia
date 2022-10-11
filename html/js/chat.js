@@ -11,6 +11,7 @@ const input = document.getElementById("input");
 const username = document.getElementById("username");
 const join = document.getElementById("join");
 join.style.display = "block";
+form.style.display = "none";
 document.getElementById("chatBtn").disabled = true;
 document.getElementById("joinBtn").disabled = false;
 
@@ -39,7 +40,8 @@ socket.on("message", (msg) => {
   const item = document.createElement("li");
   item.textContent = msg;
   messages.appendChild(item);
-  window.scrollTo(0, document.body.scrollHeight);
+  //window.scrollTo(0, document.body.scrollHeight);
+  messages.scrollTop = messages.scrollHeight;
 });
 
 socket.on("userlist", (msg) => {
@@ -54,6 +56,7 @@ socket.on("name taken", (msg) => {
 socket.on("new chat user", (msg) => {
   console.log(msg, "join username disabled");
   join.style.display = "none";
+  form.style.display = "block";
 });
 
 function toggleChat() {
@@ -78,5 +81,3 @@ function chatFalse() {
   document.getElementById("chatBtn").disabled = true;
   document.getElementById("nameError").innerText = "Chattinimi on jo käytössä";
 }
-
-messages.scrollTop = messages.scrollHeight;
