@@ -12,18 +12,19 @@ let usernames = [];
 
 io.on("connection", (socket) => {
   console.log("a user connected", socket.id);
+  io.emit("userlist", usernames);
 
   socket.on("join", (username) => {
     if (users.some((item) => item.username === `${username}`)) {
       console.log(username, "name found from users");
-      io.emit("name taken", username);
+      socket.emit("name taken", username);
     } else {
       console.log(username, "not found from users");
       users.push({ username: username, id: socket.id });
       usernames.push(username);
       console.log("new users connected: ", users);
       io.emit("message", username + " liittyi chattiin");
-      io.emit("new chat user", username);
+      socket.emit("new chat user", username);
       io.emit("userlist", usernames);
     }
   });
