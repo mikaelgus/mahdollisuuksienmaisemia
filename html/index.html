@@ -1,56 +1,217 @@
 <!DOCTYPE html>
-<html lang="fi">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/emojionearea.min.css" />
-    <script src="/socket.io/socket.io.js"></script>
-    <script defer src="js/chat.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script type="text/javascript"src="js/emojionearea.min.js"></script>
-    <script type="text/javascript" src="js/emoji.js"></script>
-    <title>Mahdollisuuksien maailma</title>
+    <link href="css/output.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cantarell&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/video.js@7/dist/video-js.min.css"
+      rel="stylesheet"
+    />
+    <!-- <link href="https://unpkg.com/@videojs/themes@1/dist/fantasy/index.css" rel="stylesheet"> -->
+    <link href="css/omaTeema.css" rel="stylesheet" />
+    <link href="css/fantasy.css" rel="stylesheet" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"
+      integrity="sha512-zInFF17qBFVvvvFpIfeBzo7Tj7+rQxLeTJDmbxjBz5/zIr89YVbTNelNhdTT+/DCrxoVzBeUPVFJsczKbB7sew=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    ></script>
   </head>
-  <body>
-    <header>
-      <h1>Mahdollisuuksien maailma</h1>
-      <audio
-        controls
-        src="media/hamahakkimies.mp3"
-        type="audio/mp3"
-      >
-      Your browser does not support the
-        <code>audio</code> element.
+  <body
+    class="max-w-screen-xl bg-black align-middle sm:mt-20 sm:mr-10 sm:ml-10 md:mr-10 md:ml-10 2xl:mt-20 2xl:m-auto"
+  >
+    <header class="">
+      <div class="flex justify-center mb-2">
+        <p class="sm:text-center font-main tracking-widest text-2xl">
+          Mahdollisuuksien maisema
+        </p>
+      </div>
+
+      <!-- NAVIGATION -->
+
+      <div class="sm: hidden md:flex md:justify-center">
+        <a class="mx-1" href="index.html">
+          <button
+            class="gradientBtn bg-black rounded border-2 border-transparent relative text-sm p-1"
+          >
+            <p class="text-whiteGrey font-main tracking-widest">Koti</p>
+          </button>
+        </a>
+        <a class="mx-1" href="ohjelma.html">
+          <button
+            class="gradientBtn bg-black rounded border-2 border-transparent relative text-sm p-1"
+          >
+            <p class="text-whiteGrey font-main tracking-widest">Ohjelma</p>
+          </button>
+        </a>
+        <a class="mx-1" href="yhteystiedot.html">
+          <button
+            class="gradientBtn bg-black rounded border-2 border-transparent relative text-sm p-1"
+          >
+            <p class="text-whiteGrey font-main tracking-widest">Yhteystiedot</p>
+          </button>
+        </a>
+      </div>
+
+      <!-- dropdown button -->
+
+      <div class="sm:flex sm:justify-between sm:items-center md:justify-end">
+        <div class="md:hidden">
+          <button
+            class="alwaysOnGradiant bg-black rounded border-2 border-transparent relative text-sm p-1"
+            type="button"
+            data-dropdown-toggle="dropdown"
+          >
+            <p class="flex align-middle">
+              Valikko&nbsp;&nbsp;
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </p>
+          </button>
+
+          <!-- Dropdown menu -->
+          <div
+            class="flex hidden bg-black divide-y z-50 text-base list-none rounded my-4"
+            id="dropdown"
+          >
+            <ul class="py-1" aria-labelledby="dropdown">
+              <li>
+                <a class="mx-1" href="index.html">
+                  <button
+                    class="gradientBtn bg-black rounded border-2 border-transparent relative text-sm p-1"
+                  >
+                    <p class="text-whiteGrey font-main tracking-widest">Koti</p>
+                  </button>
+                </a>
+              </li>
+              <li>
+                <a class="mx-1" href="ohjelma.html">
+                  <button
+                    class="gradientBtn bg-black rounded border-2 border-transparent relative text-sm p-1"
+                  >
+                    <p class="text-whiteGrey font-main tracking-widest">
+                      Ohjelma
+                    </p>
+                  </button>
+                </a>
+              </li>
+              <li>
+                <a class="mx-1" href="yhteystiedot.html">
+                  <button
+                    class="gradientBtn bg-black rounded border-2 border-transparent relative text-sm p-1"
+                  >
+                    <p class="text-whiteGrey font-main tracking-widest">
+                      Yhteystiedot
+                    </p>
+                  </button>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- audio radio -->
+
+        <div class="md:flex md:justify-end">
+          <audio id="player" src="media/hamahakkimies.mp3"></audio>
+          <div class="flex items-center">
+            <button class="audioButton mr-2"></button>
+            <p>Hissimusa Radio</p>
+          </div>
+        </div>
+      </div>
     </header>
-    <main>
-      <form id="join">
-        <h3>Anna ensin käyttäjänimi:</h3>
-        <p>Käytä vain kirjaimia ja numeroita (min. 3 merkkiä)</p>
-        <input
-          type="text"
-          id="username"
-          placeholder="Chattinimi"
-          pattern="[A-Öa-ö0-9].{3,}"
-          autocomplete="off"
+
+    <!-- real header -->
+    <section class="md:h-60 bg-header-image bg-center bg-cover justify-center md:items-center sm:flex sm:flex-wrap">
+      <div class="md:basis-1/4 p-2">
+        <h1 class="text-center text-slate-300 md:text-xl sm:max-w-md md:text-left">
+          Luovuus sinun opinnoissasi? Mitä luovuus opiskelussa mahdollistaa?
+        </h1>
+      </div>
+      <div class="flex flex-wrap justify-center">
+        <img
+          src="media/Art-PNG-Image.png"
+          alt="harmaasävykuva Charlie Chaplinista"
+          class="w-1/4 sm:w-1/2 max-w-sm sm:p-3"
         />
-        <button id="joinBtn" type="submit">Aseta nimmari</button>
-        <p id="nameError"></p>
-      </form>
-      <form id="form">
-        <h3>Kirjoita viesti:</h3>
-        <div style="width: 300px;"> <input
-            type="text"
-            id="input"
-            placeholder="Kirjoita viesti"
-            autocomplete="off"
-            style="display: none"
-          /></div>
-       
-        <button id="chatBtn" type="submit">Tumppaa viesti</button>
-      </form>
-      <ul id="messages" style="list-style-type: none"></ul>
-    </main>
-    <footer></footer>
+      </div>
+    </header>
+    </section>
+    <section class="sm:flex sm:flex-wrap md:justify-center bg-mg-white p-4 md:p-10">
+      <div class="basis-1/2 md:basis-1/4 p-2">
+        <h2>Mikä tapahtuma?</h2>
+        <p>
+          Miten luovuuden mahdollisuuksia huomioidaan opiskelussa eri
+          kursseilla ja opiskelijoiden luovuus otetaan käyttöön? Miten luovuuden huomiointi
+          edistää kestävää oppimista, hyvää opiskelua ja innovatiivista tulevaisuutta?
+        </p>
+        <p>
+          Moniäänisessä tapahtumassa kuullaan ja nähdään sekä opiskelijoiden
+          esityksiä että käydään opettajien ja opiskelijoiden
+          yhteistä keskustelua luovuuden mahdollisuuksista opiskelussa
+          ja projektiesityksistä.
+        </p>
+      </div>
+
+      <div class="basis-1/2 md:basis-1/4 p-2">
+        <h2>Missä ja milloin?</h2>
+        <p>Metropolia Ammattikorkeakoulun Karamalmin kampuksella (Espoo)</p>
+        <p>torstaina 13.10.2022 klo 9.00-12.00</p>
+        <p>
+          Tapahtuma on maksuton, mutta edellyttää toivottavaa
+          osallistumista.
+        </p>
+      </div>
+      <div class="basis-1/2 flex-start md:basis-1/4 p-2">
+        <h2>Ohjelma ja kenelle?</h2>
+        <p>Tutustu tapahtuman ohjelmaan.</p>
+        <p>
+          Tapahtuma on tarkoitettu mediatekniikan Mediajakelu ja tietovirrat kurssin
+          opiskelijoille ja opettajille. Muiden opiskelijoiden osallistumista ei rajoiteta.
+          Luovuus luo mahdollisuuksia kaikille opiskelijoille!
+        </p>
+        <p>Tapahtumaan ei ole rajoitettu osallistujamääriä, ilmoittaudu opettajille ajoissa.</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="mt-20">
+      <div
+        class="flex w-auto h-40 border-2 rounded border-black items-center justify-center"
+      >
+        <p>Mikael Gustafsson, Heta Huostila, Satu Petäjäjärvi</p>
+      </div>
+    </footer>
+
+    <script src="https://unpkg.com/@themesberg/flowbite@latest/dist/flowbite.bundle.js"></script>
+
+    <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+    <script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script>
   </body>
 </html>
