@@ -27,8 +27,11 @@
     ></script>
     <script src="/socket.io/socket.io.js"></script>
     <script defer src="../js/chat.js"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script type="text/javascript"src="js/emojionearea.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+    ></script>
+    <script type="text/javascript" src="js/emojionearea.min.js"></script>
     <script type="text/javascript" src="js/emoji.js"></script>
   </head>
 
@@ -151,18 +154,9 @@
 
     <!-- VIDEO -->
 
-    <div class="flex justify-end">
-      <button id="toggle-chat"
-        class="bg-black rounded border-2 border-whiteGrey relative text-xs text-whiteGrey p-1 m-1"
-      >
-        piilota chatti
-      </button>
-    </div>
-
     <section
       class="m-auto mt-10 2xl:grid md:justify-items-center md:w-4/5 2xl:w-full 2xl:grid-cols-3 2xl:gap-4 2xl:justify-items-stretch"
     >
-    
       <div
         class="aspect-video border-box h-auto rounded border-2 border-grey 2xl:col-span-2 2xl:max-w-screen-xl"
       >
@@ -191,12 +185,23 @@
 
       <!-- CHAT -->
 
-      
+      <div class="h-auto rounded sm:mt-5 2xl:mt-0">
+        <div class="flex justify-end">
+          <button
+            id="toggle-chat"
+            class="bg-black rounded border-2 border-black gradientBtn relative text-xs text-whiteGrey p-1"
+          >
+            <p>Piilota chatti</p>
+          </button>
+        </div>
+        <div
+          id="chat-section"
+          class="h-auto border-2 rounded border-black alwaysOnGradiant p-1"
+        >
 
-      <div class="h-auto rounded border-2 border-grey sm:mt-5 2xl:mt-0">
-        <div id="chat-section" class="h-auto rounded border-2 border-whiteGrey">
+
           <form id="join" class="">
-        <!--<h3><p class="text-whiteGrey">Syötä ensin käyttäjänimi:</p></h3>
+            <!--<h3><p class="text-whiteGrey">Syötä ensin käyttäjänimi:</p></h3>
             <p class="text-whiteGrey">Käytä vain kirjaimia ja numeroita (min. 3 merkkiä)</p> -->
             <input
               type="text"
@@ -204,36 +209,56 @@
               placeholder="Chattinimi"
               pattern="[A-Öa-ö0-9].{3,}"
               autocomplete="off"
-              class="bg-white rounded border-2 border-whiteGrey m-2 p-1"
-              style="width: 70%;"
+              class="rounded m-2 p-1 bg-grey"
+              style="width: 70%; color: #a9a9a9"
             />
-            <button class="rounded border-2 border-whiteGrey px-2 py-1 text-xs" id="joinBtn" type="submit">
-              <p class="text-whiteGrey">Aseta</p></button>
+            <button
+              class="rounded border-2 border-black gradientBtn px-2 py-1 text-xs"
+              id="joinBtn"
+              type="submit"
+            >
+              <p>Aseta</p>
+            </button>
             <p class="text-whiteGrey" id="nameError"></p>
           </form>
-          <div class="h-40 rounded border-2 bg-white border-whiteGrey p-2">
-            <ul id="messages" style="list-style-type: none" class="h-36 overflow-y-scroll"></ul>
+          <div class="h-52 rounded p-2 bg-grey">
+            <ul
+              id="messages"
+              style="
+                list-style-type: none;
+                color: #a9a9a9;
+                font-family: Cantarell, sans-serif;
+              "
+              class="h-36 overflow-y-scroll"
+            ></ul>
           </div>
-          <form id="form" class="w-11/12 ">
-            <!-- <h3><p class="text-whiteGrey">Kirjota viesti</p></h3> -->
-        
-              <input
-                type="text"
-                id="input"
-                placeholder="Kirjoita viesti"
-                autocomplete="off"
-                
-                class="bg-white m-2"
-              />
-           
-            <button class="float-right rounded border-2 border-whiteGrey px-2 py-1 text-xs" id="chatBtn" type="submit">
-              <p class="text-whiteGrey">Lähetä</p></button>
-          </form>
-          
+          <div class="flex justify-between items-center">
+            <form id="form" class="w-8/12">
+              <!-- <h3><p class="text-whiteGrey">Kirjota viesti</p></h3> -->
+              <div class="flex w-60 items-center">
+                <input
+                  type="text"
+                  id="input"
+                  placeholder="Kirjoita viesti"
+                  autocomplete="off"
+                  class="bg-grey m-2"
+                />
+                <button
+                  class="gradientBtn bg-black rounded border-2 border-transparent relative text-sm p-1 mr-1"
+                  id="chatBtn"
+                  type="submit"
+                >
+                  <p>Lähetä</p>
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-        <div id="chat-names" class="col-span-3 h-auto text-xs p-2 text-whiteGrey rounded border-2 border-whiteGrey"
-        style="display: none;"> 
-        </div>
+        <div
+          id="chat-names"
+          class="col-span-3 h-auto text-xs p-2 text-whiteGrey rounded border-2 border-whiteGrey"
+          style="display: none"
+        ></div>
       </div>
 
       <!-- INFORMATION -->

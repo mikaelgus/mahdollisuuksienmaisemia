@@ -179,3 +179,6 @@ p{
   font-family: Cantarell;
   color: #969494;
 }
+input::placeholder {
+  color: #535353;
+}
