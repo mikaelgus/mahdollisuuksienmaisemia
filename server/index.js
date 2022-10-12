@@ -6,6 +6,7 @@ const http = require("http").createServer(app);
 const io = require("socket.io")(http);
 
 app.use(express.static("../html"));
+//app.use(express.static("../../../var/www/html"));
 
 let users = [];
 let usernames = [];
