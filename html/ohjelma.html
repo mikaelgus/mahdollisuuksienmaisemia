@@ -298,11 +298,19 @@
     <section
       class="grid sm:mt-10 sm:gap-2 md:mt-10 md:w-4/5 md:m-auto md:gap-4 xl:grid-cols-2 2xl:w-full"
     >
-      <button
+      <button data-title-text="Valojuhla" data-modal-image="media/light5.jpeg" data-desc-text="              Ohjelma:<br />
+      Tässä hurmaavassa tapahtumassa keskitymme valoihin ja niiden
+      ihmeellisiin tapoihin hurmata katsojansa. Esityksessä nähdään
+      opiskelijoiden omia käsityksiä tunteiden ja tapahtumien ilmaisua
+      valojen kautta.
+      <br /><br />
+      Sopii kaiken ikäisille
+      <br /><br />
+      Tervetuloa!"
         class="modal-open gradientBtn bg-black h-28 rounded border-2 border-black relative text-sm font-medium text-whiteGrey"
       >
         <div class="grid grid-rows-3 grid-cols-7 gap-1 h-full">
-          <div
+          <div 
             class="col-span-3 row-span-3 bg-contain bg-no-repeat"
             style="background-image: url(media/light5.jpeg)"
           ></div>
@@ -381,7 +389,7 @@
           <div class="modal-content py-4 text-left px-6 bg-black rounded">
             <!--Title-->
             <div class="flex justify-between items-center pb-3">
-              <p class="text-2xl font-bold">Valojuhla</p>
+              <p class="text-2xl font-bold" id="modal-title">Valojuhla</p>
               <div class="modal-close cursor-pointer z-50">
                 <svg
                   class="fill-current text-black"
@@ -398,17 +406,9 @@
             </div>
 
             <!--Body-->
-            <img src="media/light5.jpeg" alt="ValojuhlaKuva" />
-            <p class="m-2">
-              Ohjelma:<br />
-              Tässä hurmaavassa tapahtumassa keskitymme valoihin ja niiden
-              ihmeellisiin tapoihin hurmata katsojansa. Esityksessä nähdään
-              opiskelijoiden omia käsityksiä tunteiden ja tapahtumien ilmaisua
-              valojen kautta.
-              <br /><br />
-              Sopii kaiken ikäisille
-              <br /><br />
-              Tervetuloa!
+            <img id="modal-image" src="media/light5.jpeg" alt="ValojuhlaKuva" />
+            <p class="m-2" id="modal-desc">
+ 
             </p>
 
             <!--Footer-->
@@ -423,7 +423,15 @@
         </div>
       </div>
 
-      <button
+      <button data-title-text="Nokialle töihin!" data-modal-image="media/nokia.png" data-desc-text="              
+      Ohjelma:<br />
+      Nokialta tulee esittelemään muutama työntekijä työstään. 
+      Pääset kuulemaan tarkemmin erinlaisita työnkuvista sekä 
+      esittää kysymyksiä suoraan asiantuntijoilta.
+      <br /><br />
+      Sopii kaiken ikäisille
+      <br /><br />
+      Tervetuloa!"
         class="modal-open gradientBtn bg-black h-28 rounded border-2 border-black text-sm font-medium text-whiteGrey"
       >
         <div class="grid grid-rows-3 grid-cols-7 gap-1 h-full">
@@ -476,7 +484,15 @@
         </div>
       </button>
 
-      <button
+      <button data-title-text="Metka tiedottaa!" data-modal-image="media/metka.png" data-desc-text="              
+      Ohjelma:<br />
+      Metkalta suoraa striimiä tämän hetkisistä uudistuksista ja 
+      muutoksista! Mikäli jotain kysyttävää ilmenee niin on tämä 
+      erinomainen tilaisuus selventää omaa päätä.
+      <br /><br />
+      Sopii kaiken ikäisille
+      <br /><br />
+      Tervetuloa!"
         class="modal-open gradientBtn bg-black h-28 rounded border-2 border-black text-sm font-medium text-whiteGrey"
       >
         <div class="grid grid-rows-3 grid-cols-7 gap-1 h-full">
@@ -529,7 +545,15 @@
         </div>
       </button>
 
-      <button
+      <button data-title-text="Peli-ilta" data-modal-image="media/peli.jpeg" data-desc-text="              
+      Ohjelma:<br />
+      Ensimmäistä kertaa kokeilussa peli-ilta striimi! Vaikka et itse pääsisi
+      mukaan pelaamaan niin voit seurata kumminkin mitä illan aikana tapahtuu ja 
+      seurata vetäjien menoa.
+      <br /><br />
+      Sopii kaiken ikäisille
+      <br /><br />
+      Tervetuloa!"
         class="modal-open gradientBtn bg-black h-28 rounded border-2 border-black text-sm font-medium text-whiteGrey"
       >
         <div class="grid grid-rows-3 grid-cols-7 gap-1 h-full">
@@ -582,7 +606,14 @@
         </div>
       </button>
 
-      <button
+      <button data-title-text="Valmistujaiset!" data-modal-image="media/metropolia.jpeg" data-desc-text="              
+      Ohjelma:<br />
+      Nyt talvella valmistuven opiskelijoiden juhla striimi. Ei merkitystä
+      oletko perhettä vain muuten kiinostunut seuraamaan muiden ihmisten onnea.
+      <br /><br />
+      Sopii kaiken ikäisille
+      <br /><br />
+      Tervetuloa!"
         class="modal-open gradientBtn bg-black h-28 rounded border-2 border-black text-sm font-medium text-whiteGrey"
       >
         <div class="grid grid-rows-3 grid-cols-7 gap-1 h-full">
@@ -592,7 +623,7 @@
           ></div>
           <!--<img  src="media/light5.jpeg" alt="jokuKuva">-->
           <div class="col-span-4 text-left p-1">
-            <p class="items-center text-lg">Valmistuijaiset</p>
+            <p class="items-center text-lg">Valmistujaiset</p>
           </div>
           <div class="col-span-4 text-left p-1">
             <p class="flex items-center text-base">
@@ -635,7 +666,15 @@
         </div>
       </button>
 
-      <button
+      <button data-title-text="DNA seminaari" data-modal-image="media/dna.jpeg" data-desc-text="              
+      Ohjelma:<br />
+      DNA tulee esittelemään/ etsimään uusia mahdollisuuksia. Luvassa mielenkiintoinen
+      tutustuminen erinlaisiin työtehtäviin sekä mahdollisuus päästä selvittämään 
+      olisiko sinusta DNAlaiseksi?
+      <br /><br />
+      Sopii kaiken ikäisille
+      <br /><br />
+      Tervetuloa!"
         class="modal-open gradientBtn bg-black h-28 rounded border-2 border-black text-sm font-medium text-whiteGrey"
       >
         <div class="grid grid-rows-3 grid-cols-7 gap-1 h-full">

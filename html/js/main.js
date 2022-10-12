@@ -68,12 +68,15 @@ var openmodal = document.querySelectorAll(".modal-open");
 for (var i = 0; i < openmodal.length; i++) {
   openmodal[i].addEventListener("click", function (event) {
     event.preventDefault();
-    modalToggle();
+    modalToggle(event);
   });
 }
 
 const overlay = document.querySelector(".modal-overlay");
 overlay.addEventListener("click", modalToggle);
+const modalTitle = document.querySelector("#modal-title")
+const modalImage = document.querySelector("#modal-image")
+const modalDesc = document.querySelector("#modal-desc")
 
 var closemodal = document.querySelectorAll(".modal-close");
 for (var i = 0; i < closemodal.length; i++) {
@@ -93,7 +96,15 @@ document.onkeydown = function (evt) {
   }
 };
 
-function modalToggle() {
+function modalToggle(event) {
+    let dataElement
+    if(event != undefined){
+        dataElement = event.currentTarget.dataset
+        console.log(event.currentTarget.dataset.titleText)
+        modalTitle.innerHTML = dataElement.titleText
+        modalDesc.innerHTML = dataElement.descText
+        modalImage.src = dataElement.modalImage
+    }
   const body = document.querySelector("body");
   const modal = document.querySelector(".modal");
   modal.classList.toggle("opacity-0");
