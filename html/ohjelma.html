@@ -154,11 +154,21 @@
 
     <!-- VIDEO -->
 
+    <div class="flex justify-end mt-10 mb-2">
+      <button
+        id="toggle-chat"
+        class="bg-black rounded border-2 border-black gradientBtn relative text-xs text-whiteGrey p-1"
+      >
+        <p>Piilota chatti</p>
+      </button>
+    </div>
+
     <section
-      class="m-auto mt-10 2xl:grid md:justify-items-center md:w-4/5 2xl:w-full 2xl:grid-cols-3 2xl:gap-4 2xl:justify-items-stretch"
+      class="m-auto 2xl:grid md:justify-items-center md:w-4/5 2xl:w-full 2xl:grid-cols-3 2xl:gap-4 2xl:justify-items-stretch"
     >
       <div
         class="aspect-video border-box h-auto rounded border-2 border-grey 2xl:col-span-2 2xl:max-w-screen-xl"
+        style="grid-column: span 2;" id="video-box"
       >
         <video
           id="my-player"
@@ -169,7 +179,7 @@
           height="264"
           poster=""
           data-setup="{}"
-          style="max-width: 100%; height: 100%"
+          style="max-width: 100%; height: 100%; margin: auto;"
         >
           <source src="../media/sea_animation.mp4" type="video/mp4" />
           <source src="MY_VIDEO.webm" type="video/webm" />
@@ -186,14 +196,7 @@
       <!-- CHAT -->
 
       <div class="h-auto rounded sm:mt-5 2xl:mt-0">
-        <div class="flex justify-end">
-          <button
-            id="toggle-chat"
-            class="bg-black rounded border-2 border-black gradientBtn relative text-xs text-whiteGrey p-1"
-          >
-            <p>Piilota chatti</p>
-          </button>
-        </div>
+       
         <div
           id="chat-section"
           class="h-auto border-2 rounded border-black alwaysOnGradiant p-1"
@@ -209,7 +212,7 @@
               placeholder="Chattinimi"
               pattern="[A-Öa-ö0-9].{3,}"
               autocomplete="off"
-              class="rounded m-2 p-1 bg-grey"
+              class="rounded m-1 mb-2 p-1 bg-grey"
               style="width: 70%; color: #a9a9a9"
             />
             <button
@@ -221,7 +224,7 @@
             </button>
             <p class="text-whiteGrey" id="nameError"></p>
           </form>
-          <div class="h-52 rounded p-2 bg-grey">
+          <div class="h-60 rounded p-1 bg-grey">
             <ul
               id="messages"
               style="
