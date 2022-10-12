@@ -717,6 +717,14 @@ video {
   margin-bottom: 2.5rem;
 }
 
+.mt-5 {
+  margin-top: 1.25rem;
+}
+
+.mt-40 {
+  margin-top: 10rem;
+}
+
 .block {
   display: block;
 }
@@ -1223,6 +1231,14 @@ video {
 
   .sm\:h-96 {
     height: 24rem;
+  }
+
+  .sm\:h-\[\] {
+    height: ;
+  }
+
+  .sm\:h-\[30rem\] {
+    height: 30rem;
   }
 
   .sm\:w-1\/2 {
