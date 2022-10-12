@@ -163,6 +163,33 @@
     </header>
     </section>
 
+    <section>
+      <h1 class="text-whiteGrey text-xl p-2 ">Palautettelomake ja yhteystiedot?</h1>
+      <form id="lomake" class="rounded border-2 border-whiteGrey p-2 max-w-prose text-base flex flex-col">
+      <h3 id="otsikko" class="text-whiteGrey py-2">Anna palautetta tapahtumastaaaaa</h3>
+      <h3 id="kiitos" class="text-whiteGrey py-2 hidden">Kiitos palautteesta!</h3>
+      <!-- <label for="palaute" class="text-whiteGrey">Anna palautetta!</label> -->
+
+          <!-- <input
+          class="h-[150px] w-[250]" 
+          type="text" 
+          id="palaute"
+          name="palaute"
+          placeholder="Kirjoita tähän palutteesi (max. 250 merkkiä)"> -->
+
+          <textarea id="palaute" rows="4" cols="50">Kirjoita tähän palutteesi (max. 250 merkkiä)
+          </textarea>
+          
+          <!-- <input
+          type="text"
+          id="nimi"
+          name="nimi"
+          placeholder="Nimikenttä"> -->
+          <button id="sendPalaute" type="submit" class="rounded border-2 border-whiteGrey px-2 py-1 text-xs">
+              <p class="text-whiteGrey">Lähetä</p>
+          </button>
+      </form>
+  </section>
     <!-- Footer -->
 
     <footer class="mt-20">
@@ -172,6 +199,35 @@
         <p>Mikael Gustafsson, Heta Huostila, Satu Petäjäjärvi</p>
       </div>
     </footer>
+
+    <script>
+      let lomake = document.querySelector('#lomake');
+      let palaute = document.querySelector('#palaute');
+      let sendPalaute = document.querySelector('#sendPalaute');
+      let kiitos = document.querySelector('#kiitos');
+
+      lomake.addEventListener("submit", (e) => {
+          e.preventDefault();
+          palaute.classList.add("hidden");
+          sendPalaute.classList.add("hidden");
+          kiitos.classList.remove("hidden");
+      });
+
+      let toggled = false;
+      document
+        .querySelector(".audioButton")
+        .addEventListener("click", (event) => {
+          if (!toggled) {
+            event.target.classList.add("paused");
+            document.getElementById("player").play();
+            toggled = true;
+          } else {
+            event.target.classList.remove("paused");
+            document.getElementById("player").pause();
+            toggled = false;
+          }
+        });
+  </script>
 
     <script src="https://unpkg.com/@themesberg/flowbite@latest/dist/flowbite.bundle.js"></script>
 

@@ -748,6 +748,10 @@ video {
   height: 100%;
 }
 
+.h-\[150px\] {
+  height: 150px;
+}
+
 .w-6 {
   width: 1.5rem;
 }
@@ -776,6 +780,10 @@ video {
   width: 91.666667%;
 }
 
+.w-\[250\] {
+  width: 250;
+}
+
 .max-w-screen-xl {
   max-width: 800px;
 }
@@ -786,6 +794,10 @@ video {
 
 .max-w-xl {
   max-width: 36rem;
+}
+
+.max-w-prose {
+  max-width: 65ch;
 }
 
 .basis-1\/2 {
@@ -959,6 +971,11 @@ video {
 .px-6 {
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .pb-3 {
