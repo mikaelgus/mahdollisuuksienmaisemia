@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="css/output.css" rel="stylesheet" />
+    <link href="/css/output.css" rel="stylesheet" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -11,9 +11,14 @@
       rel="stylesheet"
     />
     <link href="https://vjs.zencdn.net/7.20.3/video-js.css" rel="stylesheet" />
-    <link href="https://unpkg.com/video.js@7/dist/video-js.min.css" rel="stylesheet">
-   <!--  <link href="https://unpkg.com/@videojs/themes@1/dist/fantasy/index.css" rel="stylesheet"> -->
+    <link
+      href="https://unpkg.com/video.js@7/dist/video-js.min.css"
+      rel="stylesheet"
+    />
+    <!-- <link href="https://unpkg.com/@videojs/themes@1/dist/fantasy/index.css" rel="stylesheet"> -->
     <link href="css/fantasy.css" rel="stylesheet" />
+    <link href="css/omaTeema.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="css/emojionearea.min.css" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js"
@@ -30,105 +35,189 @@
     <script type="text/javascript" src="js/emojionearea.min.js"></script>
     <script type="text/javascript" src="js/emoji.js"></script>
   </head>
-  <style>
-    
-  </style>
-  
-  <body class="bg-black m-20">
+
+  <body
+    class="max-w-screen-xl bg-black align-middle sm:mt-20 sm:mr-10 sm:ml-10 md:mr-10 md:ml-10 2xl:mt-20 2xl:m-auto"
+  >
     <header class="">
-      <div class="flex justify-center">
-        <p class="text-whiteGrey font-main tracking-widest	">Mahdollisuuksien maisema</p>
+      <div class="flex justify-center mb-2">
+        <p class="sm:text-center font-main tracking-widest text-2xl">
+          Mahdollisuuksien maisema
+        </p>
       </div>
 
-      <div class="flex justify-center">
-        <button
-          class="bg-black rounded border-2 border-whiteGrey relative text-sm font-medium text-whiteGrey"
-        >
-          Purple to blue
-        </button>
-        <button
-          class="bg-black rounded border-2 border-whiteGrey relative text-sm font-medium text-whiteGrey"
-        >
-          Purple to blue
-        </button>
-        <button
-          class="bg-black rounded border-2 border-whiteGrey relative text-sm font-medium text-whiteGrey"
-        >
-          Purple to blue
-        </button>
+      <!-- NAVIGATION -->
+
+      <div class="sm: hidden md:flex md:justify-center">
+        <a class="mx-1" href="index.html">
+          <button
+            class="gradientBtn bg-black rounded border-2 border-transparent relative text-sm p-1"
+          >
+            <p class="text-whiteGrey font-main tracking-widest">Koti</p>
+          </button>
+        </a>
+        <a class="mx-1" href="ohjelma.html">
+          <button
+            class="gradientBtn bg-black rounded border-2 border-transparent relative text-sm p-1"
+          >
+            <p class="text-whiteGrey font-main tracking-widest">Ohjelma</p>
+          </button>
+        </a>
+        <a class="mx-1" href="yhteystiedot.html">
+          <button
+            class="gradientBtn bg-black rounded border-2 border-transparent relative text-sm p-1"
+          >
+            <p class="text-whiteGrey font-main tracking-widest">Yhteystiedot</p>
+          </button>
+        </a>
       </div>
 
-      <div class="flex justify-end">
-        <audio
-        class="w-1/4"
-        controls
-        src="media/hamahakkimies.mp3"
-        type="audio/mp3"
+      <!-- dropdown button -->
 
-      >
-      Your browser does not support the
-        <code>audio</code> element.
+      <div class="sm:flex sm:justify-between sm:items-center md:justify-end">
+        <div class="md:hidden">
+          <button
+            class="alwaysOnGradiant bg-black rounded border-2 border-transparent relative text-sm p-1"
+            type="button"
+            data-dropdown-toggle="dropdown"
+          >
+            <p class="flex align-middle">
+              Valikko&nbsp;&nbsp;
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12.75l3 3m0 0l3-3m-3 3v-7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </p>
+          </button>
+
+          <!-- Dropdown menu -->
+          <div
+            class="flex hidden bg-black divide-y z-50 text-base list-none rounded my-4"
+            id="dropdown"
+          >
+            <ul class="py-1" aria-labelledby="dropdown">
+              <li>
+                <a class="mx-1" href="index.html">
+                  <button
+                    class="gradientBtn bg-black rounded border-2 border-transparent relative text-sm p-1"
+                  >
+                    <p class="text-whiteGrey font-main tracking-widest">Koti</p>
+                  </button>
+                </a>
+              </li>
+              <li>
+                <a class="mx-1" href="ohjelma.html">
+                  <button
+                    class="gradientBtn bg-black rounded border-2 border-transparent relative text-sm p-1"
+                  >
+                    <p class="text-whiteGrey font-main tracking-widest">
+                      Ohjelma
+                    </p>
+                  </button>
+                </a>
+              </li>
+              <li>
+                <a class="mx-1" href="yhteystiedot.html">
+                  <button
+                    class="gradientBtn bg-black rounded border-2 border-transparent relative text-sm p-1"
+                  >
+                    <p class="text-whiteGrey font-main tracking-widest">
+                      Yhteystiedot
+                    </p>
+                  </button>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- audio radio -->
+
+        <div class="md:flex md:justify-end">
+          <audio
+            id="player"
+            src="https://media-cloud.francecentral.cloudapp.azure.com:8001/radio"
+          ></audio>
+          <div class="flex items-center">
+            <button class="audioButton mr-2"></button>
+            <p>Hissimusa Radio</p>
+          </div>
+        </div>
       </div>
-     
     </header>
 
     <!-- VIDEO -->
 
+    <div class="flex justify-end mt-10 mb-2">
+      <button
+        id="toggle-chat"
+        class="bg-black rounded border-2 border-black gradientBtn relative text-xs text-whiteGrey p-1"
+      >
+        <p>Piilota chatti</p>
+      </button>
+    </div>
+
     <section
-      class="m-auto mt-10 2xl:grid md:justify-items-center md:w-4/5 2xl:w-full 2xl:grid-cols-3 2xl:gap-4 2xl:justify-items-stretch"
+      class="m-auto 2xl:grid md:justify-items-center md:w-4/5 2xl:w-full 2xl:grid-cols-3 2xl:gap-4 2xl:justify-items-stretch"
     >
       <div
         class="aspect-video border-box h-auto rounded border-2 border-grey 2xl:col-span-2 2xl:max-w-screen-xl"
+        style="grid-column: span 2"
+        id="video-box"
       >
         <video
-        id="my-player"
-        class="video-js vjs-theme-fantasy"
-        controls
-        preload="auto"
-        width="640"
-        height="264"
-        poster=""
-        data-setup="{}"
-        style="max-width: 100%;"
-      >
-        <source src="media/sea_animation.mp4" type="video/mp4" />
-        <source src="MY_VIDEO.webm" type="video/webm" />
-        <p class="vjs-no-js">
-          To view this video please enable JavaScript, and consider upgrading to a
-          web browser that
-          <a href="https://videojs.com/html5-video-support/" target="_blank"
-            >supports HTML5 video</a
-          >
-        </p>
-      </video>
+          id="my-player"
+          class="video-js vjs-theme-fantasy"
+          controls
+          preload="auto"
+          width="640"
+          height="264"
+          poster="media/brick-wall-front.jpg"
+          data-setup="{}"
+          style="max-width: 100%; height: 100%; margin: auto"
+        >
+          <source
+            src="http://195.148.104.124:1935/jakelu/hemisa/playlist.m3u8"
+            type="application/x-mpegURL"
+          />
+
+          <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading
+            to a web browser that
+            <a href="https://videojs.com/html5-video-support/" target="_blank"
+              >supports HTML5 video</a
+            >
+          </p>
+        </video>
       </div>
 
       <!-- CHAT -->
 
       <div class="h-auto rounded sm:mt-5 2xl:mt-0">
-        <div class="flex justify-end">
-          <button
-            id="toggle-chat"
-            class="bg-black rounded border-2 border-black gradientBtn relative text-xs text-whiteGrey p-1"
-          >
-            <p>Piilota chatti</p>
-          </button>
-        </div>
         <div
           id="chat-section"
           class="h-auto border-2 rounded border-black alwaysOnGradiant p-1"
         >
-
-
           <form id="join" class="">
             <!--<h3><p class="text-whiteGrey">Syötä ensin käyttäjänimi:</p></h3>
             <p class="text-whiteGrey">Käytä vain kirjaimia ja numeroita (min. 3 merkkiä)</p> -->
             <input
               type="text"
-              id="input"
-              placeholder="Kirjoita viesti"
+              id="username"
+              placeholder="Chattinimi"
+              pattern="[A-Öa-ö0-9].{3,}"
               autocomplete="off"
-              class="rounded m-2 p-1 bg-grey"
+              class="rounded m-1 mb-2 p-1 bg-grey"
               style="width: 70%; color: #a9a9a9"
             />
             <button
@@ -140,7 +229,7 @@
             </button>
             <p class="text-whiteGrey" id="nameError"></p>
           </form>
-          <div class="h-52 rounded p-2 bg-grey">
+          <div class="h-60 rounded p-1 bg-grey">
             <ul
               id="messages"
               style="
@@ -179,60 +268,447 @@
           style="display: none"
         ></div>
       </div>
-      <div style="display: none;" id="chat-names" class="col-span-3 h-auto text-xs p-2 text-whiteGrey rounded border-2 border-whiteGrey"> 
-      </div>
-      <div class="col-span-3 h-40 rounded border-2 border-whiteGrey">
-        <p class="text-whiteGrey">Informaatio</p>
-        
+
+      <!-- INFORMATION -->
+
+      <div
+        class="h-auto rounded border-2 border-black sm:mt-5 2xl:mt-0 2xl:col-span-3"
+      >
+        <p>
+          Ohjelma: <br />
+          Tässä striimissä opiskelijat esittelevät omaa projektiaan monen
+          tuskaisen viikon takaa. Projektin teemana on ollut hioa mahdollisimman
+          tyylikäs sivusto media lisukkeita käyttäen joita ovat mm. Striimi ja
+          radio.
+          <br /><br />
+          Ohjelma sopii kaiken ikäisille muttei kaikista huono näköisimmille
+          sekä migreenistä kärsiville.
+          <br /><br />
+          Tervetuloa nauttimaan meidän kanssamme!
+        </p>
       </div>
     </section>
 
-    <section class="grid grid-cols-2 gap-4 mt-10">
-      <button
-        class="bg-black h-28 rounded border-2 border-whiteGrey relative text-sm font-medium text-whiteGrey"
+    <div class="mt-16">
+      <p
+        class="text-xl alwaysOnGradiant border-b-2 border-whiteGrey md:w-4/5 md:m-auto 2xl:w-full"
       >
-        Purple to blue
+        Tulossa seuraavaksi:
+      </p>
+    </div>
+
+    <!-- Buttons -->
+
+    <section
+      class="grid sm:mt-10 sm:gap-2 md:mt-10 md:w-4/5 md:m-auto md:gap-4 xl:grid-cols-2 2xl:w-full"
+    >
+      <button
+        class="modal-open gradientBtn bg-black h-28 rounded border-2 border-black relative text-sm font-medium text-whiteGrey"
+      >
+        <div class="grid grid-rows-3 grid-cols-7 gap-1 h-full">
+          <div
+            class="col-span-3 row-span-3 bg-contain bg-no-repeat"
+            style="background-image: url(media/light5.jpeg)"
+          ></div>
+          <!--<img  src="media/light5.jpeg" alt="jokuKuva">-->
+          <div class="col-span-4 text-left p-1">
+            <p class="items-center text-lg">Valojuhla</p>
+          </div>
+          <div class="col-span-4 text-left p-1">
+            <p class="flex items-center text-base">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
+                />
+              </svg>
+              &nbsp;&nbsp;17.10.2022
+            </p>
+          </div>
+          <div class="col-span-4 text-left p-1">
+            <p class="flex items-center text-base">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              &nbsp;&nbsp;19:00
+            </p>
+          </div>
+        </div>
+      </button>
+
+      <div
+        class="modal opacity-0 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center"
+      >
+        <div
+          class="modal-overlay absolute w-full h-full bg-gray-900 opacity-50"
+        ></div>
+
+        <div
+          class="modal-container bg-white w-11/12 md:max-w-md mx-auto rounded shadow-lg z-50 overflow-y-auto"
+        >
+          <div
+            class="modal-close absolute top-0 right-0 cursor-pointer flex flex-col items-center mt-4 mr-4 text-white text-sm z-50"
+          >
+            <svg
+              class="fill-current text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+            >
+              <path
+                d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"
+              ></path>
+            </svg>
+          </div>
+
+          <!-- Add margin if you want to see some of the overlay behind the modal-->
+          <div class="modal-content py-4 text-left px-6 bg-black rounded">
+            <!--Title-->
+            <div class="flex justify-between items-center pb-3">
+              <p class="text-2xl font-bold">Valojuhla</p>
+              <div class="modal-close cursor-pointer z-50">
+                <svg
+                  class="fill-current text-black"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                >
+                  <path
+                    d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+
+            <!--Body-->
+            <img src="media/light5.jpeg" alt="ValojuhlaKuva" />
+            <p class="m-2">
+              Ohjelma:<br />
+              Tässä hurmaavassa tapahtumassa keskitymme valoihin ja niiden
+              ihmeellisiin tapoihin hurmata katsojansa. Esityksessä nähdään
+              opiskelijoiden omia käsityksiä tunteiden ja tapahtumien ilmaisua
+              valojen kautta.
+              <br /><br />
+              Sopii kaiken ikäisille
+              <br /><br />
+              Tervetuloa!
+            </p>
+
+            <!--Footer-->
+            <div class="flex justify-end pt-2">
+              <button
+                class="modal-close gradientBtn bg-black rounded border-2 border-transparent relative text-lg p-2"
+              >
+                <p>Sulje</p>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="modal-open gradientBtn bg-black h-28 rounded border-2 border-black text-sm font-medium text-whiteGrey"
+      >
+        <div class="grid grid-rows-3 grid-cols-7 gap-1 h-full">
+          <div
+            class="col-span-3 row-span-3 bg-contain bg-no-repeat"
+            style="background-image: url(media/light5.jpeg)"
+          ></div>
+          <!--<img  src="media/light5.jpeg" alt="jokuKuva">-->
+          <div class="col-span-4 text-left p-1">
+            <p class="items-center text-lg">Valojuhla</p>
+          </div>
+          <div class="col-span-4 text-left p-1">
+            <p class="flex items-center text-base">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
+                />
+              </svg>
+              &nbsp;&nbsp;17.10.2022
+            </p>
+          </div>
+          <div class="col-span-4 text-left p-1">
+            <p class="flex items-center text-base">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              &nbsp;&nbsp;19:00
+            </p>
+          </div>
+        </div>
       </button>
 
       <button
-        class="bg-black h-28 rounded border-2 border-whiteGrey relative text-sm font-medium text-whiteGrey"
+        class="modal-open gradientBtn bg-black h-28 rounded border-2 border-black text-sm font-medium text-whiteGrey"
       >
-        Purple to blue
+        <div class="grid grid-rows-3 grid-cols-7 gap-1 h-full">
+          <div
+            class="col-span-3 row-span-3 bg-contain bg-no-repeat"
+            style="background-image: url(media/light5.jpeg)"
+          ></div>
+          <!--<img  src="media/light5.jpeg" alt="jokuKuva">-->
+          <div class="col-span-4 text-left p-1">
+            <p class="items-center text-lg">Valojuhla</p>
+          </div>
+          <div class="col-span-4 text-left p-1">
+            <p class="flex items-center text-base">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
+                />
+              </svg>
+              &nbsp;&nbsp;17.10.2022
+            </p>
+          </div>
+          <div class="col-span-4 text-left p-1">
+            <p class="flex items-center text-base">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              &nbsp;&nbsp;19:00
+            </p>
+          </div>
+        </div>
       </button>
 
       <button
-        class="bg-black h-28 rounded border-2 border-whiteGrey relative text-sm font-medium text-whiteGrey"
+        class="modal-open gradientBtn bg-black h-28 rounded border-2 border-black text-sm font-medium text-whiteGrey"
       >
-        Purple to blue
+        <div class="grid grid-rows-3 grid-cols-7 gap-1 h-full">
+          <div
+            class="col-span-3 row-span-3 bg-contain bg-no-repeat"
+            style="background-image: url(media/light5.jpeg)"
+          ></div>
+          <!--<img  src="media/light5.jpeg" alt="jokuKuva">-->
+          <div class="col-span-4 text-left p-1">
+            <p class="items-center text-lg">Valojuhla</p>
+          </div>
+          <div class="col-span-4 text-left p-1">
+            <p class="flex items-center text-base">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
+                />
+              </svg>
+              &nbsp;&nbsp;17.10.2022
+            </p>
+          </div>
+          <div class="col-span-4 text-left p-1">
+            <p class="flex items-center text-base">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              &nbsp;&nbsp;19:00
+            </p>
+          </div>
+        </div>
       </button>
 
       <button
-        class="bg-black h-28 rounded border-2 border-whiteGrey relative text-sm font-medium text-whiteGrey"
+        class="modal-open gradientBtn bg-black h-28 rounded border-2 border-black text-sm font-medium text-whiteGrey"
       >
-        Purple to blue
+        <div class="grid grid-rows-3 grid-cols-7 gap-1 h-full">
+          <div
+            class="col-span-3 row-span-3 bg-contain bg-no-repeat"
+            style="background-image: url(media/light5.jpeg)"
+          ></div>
+          <!--<img  src="media/light5.jpeg" alt="jokuKuva">-->
+          <div class="col-span-4 text-left p-1">
+            <p class="items-center text-lg">Valojuhla</p>
+          </div>
+          <div class="col-span-4 text-left p-1">
+            <p class="flex items-center text-base">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
+                />
+              </svg>
+              &nbsp;&nbsp;17.10.2022
+            </p>
+          </div>
+          <div class="col-span-4 text-left p-1">
+            <p class="flex items-center text-base">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              &nbsp;&nbsp;19:00
+            </p>
+          </div>
+        </div>
       </button>
 
       <button
-        class="bg-black h-28 rounded border-2 border-whiteGrey relative text-sm font-medium text-whiteGrey"
+        class="modal-open gradientBtn bg-black h-28 rounded border-2 border-black text-sm font-medium text-whiteGrey"
       >
-        Purple to blue
-      </button>
-
-      <button
-        class="bg-black h-28 rounded border-2 border-whiteGrey hover:border-gradi relative text-sm font-medium text-whiteGrey"
-      >
-        Purple to blue
+        <div class="grid grid-rows-3 grid-cols-7 gap-1 h-full">
+          <div
+            class="col-span-3 row-span-3 bg-contain bg-no-repeat"
+            style="background-image: url(media/light5.jpeg)"
+          ></div>
+          <!--<img  src="media/light5.jpeg" alt="jokuKuva">-->
+          <div class="col-span-4 text-left p-1">
+            <p class="items-center text-lg">Valojuhla</p>
+          </div>
+          <div class="col-span-4 text-left p-1">
+            <p class="flex items-center text-base">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"
+                />
+              </svg>
+              &nbsp;&nbsp;17.10.2022
+            </p>
+          </div>
+          <div class="col-span-4 text-left p-1">
+            <p class="flex items-center text-base">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              &nbsp;&nbsp;19:00
+            </p>
+          </div>
+        </div>
       </button>
     </section>
+
+    <!-- Footer -->
+
+    <footer class="mt-20">
+      <div
+        class="flex w-auto h-40 border-2 rounded border-black items-center justify-center"
+      >
+        <p>Mikael Gustafsson, Heta Huostila, Satu Petäjäjärvi</p>
+      </div>
+    </footer>
 
     <script>
-      let buttons = document.querySelectorAll("button");
-      const colorScale = chroma.scale([
-        "#FF00F5",
-        "#00F0FF",
-        "#00FF19",
-        "#FAFF00",
-      ]).domain([0,0.7,0.6,0.9]);
+      let buttons = document.querySelectorAll(".gradientBtn");
+      let alwaysOnButton = document.querySelectorAll(".alwaysOnGradiant");
+      const colorScale = chroma
+        .scale(["#FF00F5", "#00F0FF", "#00FF19", "#FAFF00"])
+        .domain([0, 0.7, 0.6, 0.9]);
 
       const bodyHeight = window.innerHeight;
       const bodyWidth = document
@@ -241,27 +717,100 @@
 
       function colorButtons() {
         buttons.forEach((button) => {
-          button.onmouseover =
-            function (event) {
-              let height = button.getBoundingClientRect().y;
-              let width = button.getBoundingClientRect().x;
-              let percentageLeftCorner = (height / bodyHeight + width / bodyWidth) / 2;
-              let percentageRightCorner = ((height + button.offsetHeight) / bodyHeight + (button.offsetWidth+ width) / bodyWidth) / 2;
-              
-              button.style.borderStyle = `solid`;
-              button.style.borderImage = `linear-gradient(120deg,${colorScale(percentageLeftCorner)},${colorScale(percentageRightCorner)}) 10`;
-            };
-            button.onmouseleave= function(){
-             button.style = ``;
-
-            }
+          button.onmouseover = function (event) {
+            addButtonColor(button);
+          };
+          button.onmouseleave = function () {
+            button.style = ``;
+            button.classList.remove("gradiantButton");
+          };
         });
       }
-      colorButtons()
-      //window.addEventListener('scroll', function(){
-      //    colorButtons()
-      //})
+
+      function changeAlwaysOnButtonColor() {
+        alwaysOnButton.forEach((button) => {
+          addButtonColor(button);
+        });
+      }
+
+      function addButtonColor(button) {
+        let height = button.getBoundingClientRect().y;
+        let width = button.getBoundingClientRect().x;
+        let percentageLeftCorner =
+          (height / bodyHeight + width / bodyWidth) / 2;
+        let percentageRightCorner =
+          ((height + button.offsetHeight) / bodyHeight +
+            (button.offsetWidth + width) / bodyWidth) /
+          2;
+
+        // button.style.borderStyle = `solid`;
+        button.classList.add("gradiantButton");
+        button.style.borderImage = `linear-gradient(120deg,${colorScale(
+          percentageLeftCorner
+        )},${colorScale(percentageRightCorner)}) 10`;
+      }
+      colorButtons();
+      changeAlwaysOnButtonColor();
+
+      window.addEventListener("scroll", function () {
+        changeAlwaysOnButtonColor();
+      });
+      let toggled = false;
+      document
+        .querySelector(".audioButton")
+        .addEventListener("click", (event) => {
+          if (!toggled) {
+            event.target.classList.add("paused");
+            document.getElementById("player").play();
+            toggled = true;
+          } else {
+            event.target.classList.remove("paused");
+            document.getElementById("player").pause();
+            toggled = false;
+          }
+        });
+
+      var openmodal = document.querySelectorAll(".modal-open");
+      for (var i = 0; i < openmodal.length; i++) {
+        openmodal[i].addEventListener("click", function (event) {
+          event.preventDefault();
+          modalToggle();
+        });
+      }
+
+      const overlay = document.querySelector(".modal-overlay");
+      overlay.addEventListener("click", modalToggle);
+
+      var closemodal = document.querySelectorAll(".modal-close");
+      for (var i = 0; i < closemodal.length; i++) {
+        closemodal[i].addEventListener("click", modalToggle);
+      }
+
+      document.onkeydown = function (evt) {
+        evt = evt || window.event;
+        var isEscape = false;
+        if ("key" in evt) {
+          isEscape = evt.key === "Escape" || evt.key === "Esc";
+        } else {
+          isEscape = evt.keyCode === 27;
+        }
+        if (isEscape && document.body.classList.contains("modal-active")) {
+          modalToggle();
+        }
+      };
+
+      function modalToggle() {
+        const body = document.querySelector("body");
+        const modal = document.querySelector(".modal");
+        modal.classList.toggle("opacity-0");
+        modal.classList.toggle("pointer-events-none");
+        body.classList.toggle("modal-active");
+      }
     </script>
+
+    <script src="https://unpkg.com/@themesberg/flowbite@latest/dist/flowbite.bundle.js"></script>
+
     <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
+    <script src="http://127.0.0.1:3000/socket.io/socket.io.js"></script>
   </body>
 </html>

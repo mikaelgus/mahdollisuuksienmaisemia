@@ -137,7 +137,7 @@
         <!-- audio radio -->
 
         <div class="md:flex md:justify-end">
-          <audio id="player" src="media/hamahakkimies.mp3"></audio>
+          <audio id="player" src="https://media-cloud.francecentral.cloudapp.azure.com:8001/radio"></audio>
           <div class="flex items-center">
             <button class="audioButton mr-2"></button>
             <p>Hissimusa Radio</p>
@@ -208,7 +208,22 @@
         <p>Mikael Gustafsson, Heta Huostila, Satu Petäjäjärvi</p>
       </div>
     </footer>
-
+    <script>
+      let toggled = false;
+      document
+        .querySelector(".audioButton")
+        .addEventListener("click", (event) => {
+          if (!toggled) {
+            event.target.classList.add("paused");
+            document.getElementById("player").play();
+            toggled = true;
+          } else {
+            event.target.classList.remove("paused");
+            document.getElementById("player").pause();
+            toggled = false;
+          }
+        });
+    </script>
     <script src="https://unpkg.com/@themesberg/flowbite@latest/dist/flowbite.bundle.js"></script>
 
     <script src="https://vjs.zencdn.net/7.20.3/video.min.js"></script>
