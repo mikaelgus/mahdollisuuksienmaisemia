@@ -144,7 +144,10 @@
         <!-- audio radio -->
 
         <div class="md:flex md:justify-end">
-          <audio id="player" src="media/hamahakkimies.mp3"></audio>
+          <audio
+            id="player"
+            src="https://media-cloud.francecentral.cloudapp.azure.com:8001/radio"
+          ></audio>
           <div class="flex items-center">
             <button class="audioButton mr-2"></button>
             <p>Radio</p>
@@ -169,7 +172,8 @@
     >
       <div
         class="aspect-video border-box h-auto rounded border-2 border-grey 2xl:col-span-2 2xl:max-w-screen-xl"
-        style="grid-column: span 2;" id="video-box"
+        style="grid-column: span 2"
+        id="video-box"
       >
         <video
           id="my-player"
@@ -180,10 +184,12 @@
           height="264"
           poster="media/poster.png"
           data-setup="{}"
-          style="max-width: 100%; height: 100%; margin: auto;"
+          style="max-width: 100%; height: 100%; margin: auto"
         >
-          <source src="../media/sea_animation.mp4" type="video/mp4" />
-          <source src="MY_VIDEO.webm" type="video/webm" />
+          <source
+            src="http://195.148.104.124:1935/jakelu/hemisa/playlist.m3u8"
+            type="application/x-mpegURL"
+          />
           <p class="vjs-no-js">
             To view this video please enable JavaScript, and consider upgrading
             to a web browser that
@@ -197,13 +203,10 @@
       <!-- CHAT -->
 
       <div class="h-auto rounded sm:mt-5 2xl:mt-0">
-       
         <div
           id="chat-section"
           class="h-auto border-2 rounded border-black alwaysOnGradiant p-1"
         >
-
-
           <form id="join" class="">
             <!--<h3><p class="text-whiteGrey">Syötä ensin käyttäjänimi:</p></h3>
             <p class="text-whiteGrey">Käytä vain kirjaimia ja numeroita (min. 3 merkkiä)</p> -->
@@ -298,7 +301,10 @@
     <section
       class="grid sm:mt-10 sm:gap-2 md:mt-10 md:w-4/5 md:m-auto md:gap-4 xl:grid-cols-2 2xl:w-full"
     >
-      <button data-title-text="Valojuhla" data-modal-image="media/light5.jpeg" data-desc-text="              Ohjelma:<br />
+      <button
+        data-title-text="Valojuhla"
+        data-modal-image="media/light5.jpeg"
+        data-desc-text="              Ohjelma:<br />
       Tässä hurmaavassa tapahtumassa keskitymme valoihin ja niiden
       ihmeellisiin tapoihin hurmata katsojansa. Esityksessä nähdään
       opiskelijoiden omia käsityksiä tunteiden ja tapahtumien ilmaisua
@@ -310,7 +316,7 @@
         class="modal-open gradientBtn bg-black h-28 rounded border-2 border-black relative text-sm font-medium text-whiteGrey"
       >
         <div class="grid grid-rows-3 grid-cols-7 gap-1 h-full">
-          <div 
+          <div
             class="col-span-3 row-span-3 bg-contain bg-no-repeat"
             style="background-image: url(media/light5.jpeg)"
           ></div>
@@ -407,9 +413,7 @@
 
             <!--Body-->
             <img id="modal-image" src="media/light5.jpeg" alt="ValojuhlaKuva" />
-            <p class="m-2" id="modal-desc">
- 
-            </p>
+            <p class="m-2" id="modal-desc"></p>
 
             <!--Footer-->
             <div class="flex justify-end pt-2">
@@ -423,7 +427,10 @@
         </div>
       </div>
 
-      <button data-title-text="Nokialle töihin!" data-modal-image="media/nokia.png" data-desc-text="              
+      <button
+        data-title-text="Nokialle töihin!"
+        data-modal-image="media/nokia.png"
+        data-desc-text="              
       Ohjelma:<br />
       Nokialta tulee esittelemään muutama työntekijä työstään. 
       Pääset kuulemaan tarkemmin erinlaisita työnkuvista sekä 
@@ -484,7 +491,10 @@
         </div>
       </button>
 
-      <button data-title-text="Metka tiedottaa!" data-modal-image="media/metka.png" data-desc-text="              
+      <button
+        data-title-text="Metka tiedottaa!"
+        data-modal-image="media/metka.png"
+        data-desc-text="              
       Ohjelma:<br />
       Metkalta suoraa striimiä tämän hetkisistä uudistuksista ja 
       muutoksista! Mikäli jotain kysyttävää ilmenee niin on tämä 
@@ -545,7 +555,10 @@
         </div>
       </button>
 
-      <button data-title-text="Peli-ilta" data-modal-image="media/peli.jpeg" data-desc-text="              
+      <button
+        data-title-text="Peli-ilta"
+        data-modal-image="media/peli.jpeg"
+        data-desc-text="              
       Ohjelma:<br />
       Ensimmäistä kertaa kokeilussa peli-ilta striimi! Vaikka et itse pääsisi
       mukaan pelaamaan niin voit seurata kumminkin mitä illan aikana tapahtuu ja 
@@ -606,7 +619,10 @@
         </div>
       </button>
 
-      <button data-title-text="Valmistujaiset!" data-modal-image="media/metropolia.jpeg" data-desc-text="              
+      <button
+        data-title-text="Valmistujaiset!"
+        data-modal-image="media/metropolia.jpeg"
+        data-desc-text="              
       Ohjelma:<br />
       Nyt talvella valmistuven opiskelijoiden juhla striimi. Ei merkitystä
       oletko perhettä vain muuten kiinostunut seuraamaan muiden ihmisten onnea.
@@ -666,7 +682,10 @@
         </div>
       </button>
 
-      <button data-title-text="DNA seminaari" data-modal-image="media/dna.jpeg" data-desc-text="              
+      <button
+        data-title-text="DNA seminaari"
+        data-modal-image="media/dna.jpeg"
+        data-desc-text="              
       Ohjelma:<br />
       DNA tulee esittelemään/ etsimään uusia mahdollisuuksia. Luvassa mielenkiintoinen
       tutustuminen erinlaisiin työtehtäviin sekä mahdollisuus päästä selvittämään 

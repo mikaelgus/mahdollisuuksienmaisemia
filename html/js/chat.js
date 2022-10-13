@@ -1,7 +1,7 @@
 "use strict";
 
-const socket = io("http://localhost:3000");
-//const socket = io("https://media-cloud.francecentral.cloudapp.azure.com/");
+//const socket = io("http://localhost:3000");
+const socket = io("https://media-cloud.francecentral.cloudapp.azure.com/");
 
 const toggleBtn = document.getElementById("toggle-chat");
 const chatSection = document.getElementById("chat-section");

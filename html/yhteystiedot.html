@@ -137,7 +137,10 @@
         <!-- audio radio -->
 
         <div class="md:flex md:justify-end">
-          <audio id="player" src="media/hamahakkimies.mp3"></audio>
+          <audio
+            id="player"
+            src="https://media-cloud.francecentral.cloudapp.azure.com:8001/radio"
+          ></audio>
           <div class="flex items-center">
             <button class="audioButton mr-2"></button>
             <p>Radio</p>
@@ -146,46 +149,58 @@
       </div>
     </header>
 
-<!-- LOMAKE -->
- 
-<section class="mt-10 grid grid-cols-3 grid-rows-2 gap-2 mb-10 sm:h-[30rem] lg:h-80">
+    <!-- LOMAKE -->
 
-  <div class=" bg-no-repeat rounded bg-center bg-cover 
-  sm:col-span-3 lg:col-span-1 lg:row-span-2"
+    <section
+      class="mt-10 grid grid-cols-3 grid-rows-2 gap-2 mb-10 sm:h-[30rem] lg:h-80"
+    >
+      <div
+        class="bg-no-repeat rounded bg-center bg-cover sm:col-span-3 lg:col-span-1 lg:row-span-2"
+        style="background-image: url(media/bg_yht.jpeg)"
+      ></div>
 
-  style="background-image: url(media/bg_yht.jpeg);">
-
-
-  </div>
-
-    <div class="sm:col-span-3 lg:col-span-2 ">
-      <h1 class="text-xl p-2 ">
-        <p class="alwaysOnGradiant border-b-2">Kiinnostaako vaikuttaa ja antaa palautetta?</p>
-      </h1>
-      <form id="lomake" class="h-72 rounded border-2 border-black p-2 max-w-prose text-base flex flex-col">
-      <!-- <h3 id="otsikko" class="text-whiteGrey py-2">
+      <div class="sm:col-span-3 lg:col-span-2">
+        <h1 class="text-xl p-2">
+          <p class="alwaysOnGradiant border-b-2">
+            Kiinnostaako vaikuttaa ja antaa palautetta?
+          </p>
+        </h1>
+        <form
+          id="lomake"
+          class="h-72 rounded border-2 border-black p-2 max-w-prose text-base flex flex-col"
+        >
+          <!-- <h3 id="otsikko" class="text-whiteGrey py-2">
         <p>Palaute:</p>
       </h3> -->
-      <h3 id="kiitos" class="text-whiteGrey py-2 hidden"><p>Kiitos palautteesta!</p></h3>
+          <h3 id="kiitos" class="text-whiteGrey py-2 hidden">
+            <p>Kiitos palautteesta!</p>
+          </h3>
 
+          <textarea
+            class="h-64 text-whiteGrey bg-grey rounded"
+            id="palaute"
+            rows="4"
+            cols="50"
+            placeholder="Palauteen pituus max 250 merkkiä"
+          ></textarea>
 
-          <textarea class="h-64 text-whiteGrey bg-grey rounded" id="palaute" rows="4" cols="50"
-          placeholder="Palauteen pituus max 250 merkkiä"></textarea>
-
-          <button id="sendPalaute" type="submit" class="gradientBtn bg-black rounded border-2 border-transparent relative text-sm p-1">
-              <p>Lähetä</p>
+          <button
+            id="sendPalaute"
+            type="submit"
+            class="gradientBtn bg-black rounded border-2 border-transparent relative text-sm p-1"
+          >
+            <p>Lähetä</p>
           </button>
-      </form>
-    </div>
-  </section>
+        </form>
+      </div>
+    </section>
 
-  <section class="mt-40">
-    <p>
-      Yhteystiedot: <br>
-      Metropolian Karamalmin kampus.
-    </p>
-  </section>
-
+    <section class="mt-40">
+      <p>
+        Yhteystiedot: <br />
+        Metropolian Karamalmin kampus.
+      </p>
+    </section>
 
     <!-- Footer -->
 
@@ -197,20 +212,20 @@
       </div>
     </footer>
 
-<script>
-  let lomake = document.querySelector('#lomake');
-let palaute = document.querySelector('#palaute');
-let sendPalaute = document.querySelector('#sendPalaute');
-let kiitos = document.querySelector('#kiitos');
+    <script>
+      let lomake = document.querySelector("#lomake");
+      let palaute = document.querySelector("#palaute");
+      let sendPalaute = document.querySelector("#sendPalaute");
+      let kiitos = document.querySelector("#kiitos");
 
-lomake.addEventListener("submit", (e) => {
-    e.preventDefault();
-    console.log('helloooo');
-    palaute.classList.add("hidden");
-    sendPalaute.classList.add("hidden");
-    kiitos.classList.remove("hidden");
-});
-</script>
+      lomake.addEventListener("submit", (e) => {
+        e.preventDefault();
+        console.log("helloooo");
+        palaute.classList.add("hidden");
+        sendPalaute.classList.add("hidden");
+        kiitos.classList.remove("hidden");
+      });
+    </script>
 
     <script src="js/main.js"></script>
     <script src="https://unpkg.com/@themesberg/flowbite@latest/dist/flowbite.bundle.js"></script>
